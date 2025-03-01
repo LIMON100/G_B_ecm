@@ -627,7 +627,8 @@ class _LoginState extends State<Login> {
                     minWidth: MediaQuery.of(context).size.width,
                     height: 50,
                     // color: MyTheme.accent_color,
-                    color: Colors.black,
+                    // color: Colors.black,
+                    color: Colors.green,
                     shape: RoundedRectangleBorder(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(6.0))),
@@ -658,7 +659,8 @@ class _LoginState extends State<Login> {
                 child: Btn.minWidthFixHeight(
                   minWidth: MediaQuery.of(context).size.width,
                   height: 50,
-                  color: MyTheme.amber,
+                  // color: MyTheme.amber,
+                  color: Colors.green,
                   shape: RoundedRectangleBorder(
                       borderRadius:
                           const BorderRadius.all(Radius.circular(6.0))),

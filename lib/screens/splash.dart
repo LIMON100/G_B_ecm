@@ -57,8 +57,6 @@ class _SplashState extends State<Splash> {
     return CustomSplashScreen(
       //comment this
       seconds: 3,
-
-
       //comment this
       navigateAfterSeconds: Main(),
 

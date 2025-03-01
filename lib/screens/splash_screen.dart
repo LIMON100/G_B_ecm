@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
       width: DeviceInfo(context).height,
       height: DeviceInfo(context).height,
       // color:  MyTheme.green_light,
-      color:  Colors.black,
+      color:  Colors.orange,
 
       child: InkWell(
         child: Stack(

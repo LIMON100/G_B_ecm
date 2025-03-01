@@ -32,7 +32,7 @@ class AppConfig {
   static const String RAW_BASE_URL = "${PROTOCOL}${DOMAIN_PATH}";
   // static const String BASE_URL = "${RAW_BASE_URL}/${API_ENDPATH}";
   // static const String BASE_URL = "https://neharika.3mtechbd.com/api/v2";
-  static const String BASE_URL = "https://niharikabd.com/api/v2";
+  static const String BASE_URL = "http://groceryandbutcher.shop/api/v2";
 
   @override
   String toString() {

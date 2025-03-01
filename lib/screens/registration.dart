@@ -606,7 +606,7 @@ class _RegistrationState extends State<Registration> {
                     minWidth: MediaQuery.of(context).size.width,
                     height: 50,
                     // color: MyTheme.accent_color,
-                    color: Colors.black,
+                    color: Colors.green,
                     shape: RoundedRectangleBorder(
                         borderRadius:
                         const BorderRadius.all(Radius.circular(6.0))),
