@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "357403476051",
+    "project_id": "neharika-tds-4a2f6",
+    "storage_bucket": "neharika-tds-4a2f6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357403476051:android:fc4081cb82b6bd896c46a6",
+        "android_client_info": {
+          "package_name": "com.gen21.neharika_ecom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvFr7qG5sA_d5n5NjfoMaGEqejQXn-t3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
