@@ -445,7 +445,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                       child: Btn.minWidthFixHeight(
                         minWidth: 75,
                         height: 30,
-                        // color: MyTheme.accent_color,
+                        // color: Colors.orange,
                         color: Colors.black,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0),
@@ -553,7 +553,7 @@ class _OrderDetailsState extends State<OrderDetails> {
           backgroundColor: Colors.white,
           appBar: buildAppBar(context),
           body: RefreshIndicator(
-            // color: MyTheme.accent_color,
+            // color: Colors.orange,
             color: Colors.black,
             backgroundColor: Colors.white,
             onRefresh: _onPageRefresh,
@@ -761,7 +761,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         Text(
                           convertPrice(_orderDetails!.grand_total!),
                           style: TextStyle(
-                              // color: MyTheme.accent_color,
+                              // color: Colors.orange,
                               color: Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.w600),
@@ -1114,7 +1114,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   Text(
                     _orderDetails!.code!,
                     style: TextStyle(
-                        // color: MyTheme.accent_color,
+                        // color: Colors.orange,
                         color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.w600),
@@ -1339,7 +1339,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                       Text(
                         convertPrice(_orderDetails!.grand_total!),
                         style: TextStyle(
-                            // color: MyTheme.accent_color,
+                            // color: Colors.orange,
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
@@ -1482,7 +1482,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   Text(
                     convertPrice(_orderedItemList[index].price),
                     style: TextStyle(
-                        // color: MyTheme.accent_color,
+                        // color: Colors.orange,
                         color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.w600),
@@ -1507,7 +1507,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                           Text(
                             AppLocalizations.of(context)!.ask_for_refund_ucf,
                             style: TextStyle(
-                                // color: MyTheme.accent_color,
+                                // color: Colors.orange,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                                 decoration: TextDecoration.underline),
@@ -1516,7 +1516,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                             padding: const EdgeInsets.only(left: 2.0),
                             child: Icon(
                               Icons.rotate_left,
-                              // color: MyTheme.accent_color,
+                              // color: Colors.orange,
                               color: Colors.black,
                               size: 14,
                             ),

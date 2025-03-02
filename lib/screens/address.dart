@@ -492,7 +492,7 @@ class _AddressState extends State<Address> {
         appBar: buildAppBar(context),
         bottomNavigationBar: buildBottomAppBar(context),
         body: RefreshIndicator(
-          color: MyTheme.accent_color,
+          color: Colors.orange,
           backgroundColor: Colors.white,
           onRefresh: _onRefresh,
           displacement: 0,
@@ -524,7 +524,7 @@ class _AddressState extends State<Address> {
                         ),
                         Icon(
                           Icons.add_sharp,
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                           size: 30,
                         ),
                       ],
@@ -857,7 +857,7 @@ class _AddressState extends State<Address> {
                         child: Text(
                           LangText(context).local!.close_ucf,
                           style: TextStyle(
-                            color: MyTheme.accent_color,
+                            color: Colors.orange,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -875,7 +875,7 @@ class _AddressState extends State<Address> {
                       child: Btn.minWidthFixHeight(
                         minWidth: 75,
                         height: 40,
-                        color: MyTheme.accent_color,
+                        color: Colors.orange,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6.0),
                         ),
@@ -1242,7 +1242,7 @@ class _AddressState extends State<Address> {
                           AppLocalizations.of(context)!
                               .close_all_capital,
                           style: TextStyle(
-                            color: MyTheme.accent_color,
+                            color: Colors.orange,
                             fontSize: 13
                           ),
                         ),
@@ -1259,7 +1259,7 @@ class _AddressState extends State<Address> {
                       child: Btn.minWidthFixHeight(
                         minWidth: 75,
                         height: 40,
-                        color: MyTheme.accent_color,
+                        color: Colors.orange,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0),
                             ),
@@ -1368,7 +1368,7 @@ class _AddressState extends State<Address> {
             border: Border.all(
                 color:
                     _default_shipping_address == _shippingAddressList[index].id
-                        ? MyTheme.accent_color
+                        ? Colors.orange
                         : MyTheme.light_grey,
                 width:
                     _default_shipping_address == _shippingAddressList[index].id
@@ -1637,7 +1637,7 @@ class _AddressState extends State<Address> {
               Btn.minWidthFixHeight(
                 minWidth: MediaQuery.of(context).size.width,
                 height: 50,
-                color: MyTheme.accent_color,
+                color: Colors.orange,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.0),
                 ),

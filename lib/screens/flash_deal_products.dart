@@ -269,7 +269,7 @@ class _FlashDealProductsState extends State<FlashDealProducts> {
                                     AppLocalizations.of(context)!
                                         .ended_ucf,
                                     style: TextStyle(
-                                        color: MyTheme.accent_color,
+                                        color: Colors.orange,
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w600),
                                   )
@@ -466,7 +466,7 @@ class _FlashDealProductsState extends State<FlashDealProducts> {
       padding: EdgeInsets.all(6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: MyTheme.accent_color,
+        color: Colors.orange,
       ),
     );
   }

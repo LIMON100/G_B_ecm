@@ -182,7 +182,7 @@ backgroundColor: Colors.white,
                .buildProductGridShimmer(scontroller: _scrollController));
      }else if(_productList.length > 0){
        return RefreshIndicator(
-         color: MyTheme.accent_color,
+         color: Colors.orange,
          backgroundColor: Colors.white,
          displacement: 0,
          onRefresh: _onRefresh,

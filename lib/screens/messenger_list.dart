@@ -79,7 +79,7 @@ class _MessengerListState extends State<MessengerList> {
         body: Stack(
           children: [
             RefreshIndicator(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               backgroundColor: Colors.white,
               onRefresh: _onRefresh,
               displacement: 0,

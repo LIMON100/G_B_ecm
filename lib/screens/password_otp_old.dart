@@ -187,7 +187,7 @@
 //                   //     AppLocalizations.of(context)!
 //                   //         .enter_the_code,
 //                   //     style: TextStyle(
-//                   //         color: MyTheme.accent_color,
+//                   //         color: Colors.orange,
 //                   //         fontWeight: FontWeight.w600),
 //                   //   ),
 //                   // ),
@@ -213,7 +213,7 @@
 //                     child: Text(
 //                       AppLocalizations.of(context)!.password_ucf,
 //                       style: TextStyle(
-//                           color: MyTheme.accent_color,
+//                           color: Colors.orange,
 //                           fontWeight: FontWeight.w600),
 //                     ),
 //                   ),
@@ -250,7 +250,7 @@
 //                       AppLocalizations.of(context)!
 //                           .retype_password_ucf,
 //                       style: TextStyle(
-//                           color: MyTheme.accent_color,
+//                           color: Colors.orange,
 //                           fontWeight: FontWeight.w600),
 //                     ),
 //                   ),
@@ -281,7 +281,7 @@
 //                       child: Btn.basic(
 //                         minWidth: MediaQuery.of(context).size.width,
 //
-//                         color: MyTheme.accent_color,
+//                         color: Colors.orange,
 //                         shape: RoundedRectangleBorder(
 //                             borderRadius:
 //                                 const BorderRadius.all(Radius.circular(12.0))),
@@ -311,7 +311,7 @@
 //                   AppLocalizations.of(context)!.resend_code_ucf,
 //                   textAlign: TextAlign.center,
 //                   style: TextStyle(
-//                       color: MyTheme.accent_color,
+//                       color: Colors.orange,
 //                       decoration: TextDecoration.underline,
 //                       fontSize: 13),
 //                 ),
@@ -334,7 +334,7 @@
 //                           .congratulations_ucf,
 //                       textAlign: TextAlign.center,
 //                       style: TextStyle(
-//                           color: MyTheme.accent_color,
+//                           color: Colors.orange,
 //                           fontSize: 20,
 //                           fontWeight: FontWeight.bold))),
 //             ),
@@ -348,7 +348,7 @@
 //                           .you_have_successfully_changed_your_password,
 //                       textAlign: TextAlign.center,
 //                       style: TextStyle(
-//                         color: MyTheme.accent_color,
+//                         color: Colors.orange,
 //                         fontSize: 13,
 //                       ))),
 //             ),
@@ -367,7 +367,7 @@
 //                 child: Btn.basic(
 //                   minWidth: MediaQuery.of(context).size.width,
 //
-//                   color: MyTheme.accent_color,
+//                   color: Colors.orange,
 //                   shape: RoundedRectangleBorder(
 //                       borderRadius:
 //                           const BorderRadius.all(Radius.circular(6.0))),

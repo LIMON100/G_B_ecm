@@ -511,7 +511,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
                               border: Border.all(
                                   color: _hasFocus
                                       ? MyTheme.textfield_grey
-                                      : MyTheme.accent_color,
+                                      : Colors.orange,
                                   style: BorderStyle.solid,
                                   width: _hasFocus ? 0.5 : 0.2),
                               boxShadow: [
@@ -843,7 +843,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
           child: MyWidget().myContainer(
             width: DeviceInfo(context).width!,
             height: 36,
-            borderColor: MyTheme.accent_color,
+            borderColor: Colors.orange,
             borderWith: 0.2,
             borderRadius: 6.0,
             child: Row(
@@ -994,7 +994,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(6),
                             border: Border.all(
-                                color: MyTheme.accent_color,
+                                color: Colors.orange,
                                 style: BorderStyle.solid,
                                 width: 0.1),
                             boxShadow: [
@@ -1032,7 +1032,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
                         child: TextButton(
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all(
-                                  MyTheme.accent_color),
+                                  Colors.orange),
                               shape: MaterialStateProperty.all<
                                   RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
@@ -1082,7 +1082,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
                     TextStyle(fontSize: 12.0, color: MyTheme.textfield_grey),
                 enabledBorder: OutlineInputBorder(
                   borderSide:
-                      BorderSide(color: MyTheme.accent_color, width: 0.2),
+                      BorderSide(color: Colors.orange, width: 0.2),
                   borderRadius: const BorderRadius.all(
                     const Radius.circular(6.0),
                   ),
@@ -1184,7 +1184,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           border: Border.all(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               style: BorderStyle.solid,
               width: 0.2),
           boxShadow: [
@@ -1235,7 +1235,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           border: Border.all(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               style: BorderStyle.solid,
               width: 0.2),
           boxShadow: [
@@ -1289,7 +1289,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
           borderRadius: BorderRadius.circular(6),
           // color: MyTheme.light_grey,
           border: Border.all(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               style: BorderStyle.solid,
               width: 0.2),
           boxShadow: [
@@ -1484,7 +1484,7 @@ class _ClassifiedProductEditState extends State<ClassifiedProductEdit> {
                   width: DeviceInfo(context).width!,
                   height: 36,
                   borderRadius: 6.0,
-                  borderColor: MyTheme.accent_color,
+                  borderColor: Colors.orange,
                   borderWith: 0.2,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

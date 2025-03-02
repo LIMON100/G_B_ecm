@@ -702,7 +702,7 @@ class _ProductDetailsState extends State<ProductDetails>
                         child: Btn.minWidthFixHeight(
                           minWidth: 75,
                           height: 30,
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0),
                               side: BorderSide(
@@ -819,7 +819,7 @@ class _ProductDetailsState extends State<ProductDetails>
             onPopped(value);
           });
         },
-        textColor: MyTheme.accent_color,
+        textColor: Colors.orange,
         disabledTextColor: Colors.grey,
       ),
     );
@@ -832,7 +832,7 @@ class _ProductDetailsState extends State<ProductDetails>
           bottomNavigationBar: buildBottomAppBar(context, _addedToCartSnackbar),
           //appBar: buildAppBar(statusBarHeight, context),
           body: RefreshIndicator(
-            color: MyTheme.accent_color,
+            color: Colors.orange,
             backgroundColor: Colors.white,
             onRefresh: _onPageRefresh,
             child: CustomScrollView(
@@ -902,7 +902,7 @@ class _ProductDetailsState extends State<ProductDetails>
                           child: badges.Badge(
                             badgeStyle: badges.BadgeStyle(
                               shape: badges.BadgeShape.circle,
-                              badgeColor: MyTheme.accent_color,
+                              badgeColor: Colors.orange,
                               borderRadius: BorderRadius.circular(10),
                             ),
                             badgeAnimation: badges.BadgeAnimation.slide(
@@ -1608,7 +1608,7 @@ class _ProductDetailsState extends State<ProductDetails>
                   : SystemConfig.systemCurrency!.symbol! +
                       _totalPrice.toString(),
               style: TextStyle(
-                  color: MyTheme.accent_color,
+                  color: Colors.orange,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w600),
             ),
@@ -1853,7 +1853,7 @@ class _ProductDetailsState extends State<ProductDetails>
           decoration: BoxDecoration(
             border: Border.all(
                 color: _selectedChoices[choice_options_index] == option
-                    ? MyTheme.accent_color
+                    ? Colors.orange
                     : MyTheme.noColor,
                 width: 1.5),
             borderRadius: BorderRadius.circular(3.0),
@@ -1875,7 +1875,7 @@ class _ProductDetailsState extends State<ProductDetails>
                 option,
                 style: TextStyle(
                     color: _selectedChoices[choice_options_index] == option
-                        ? MyTheme.accent_color
+                        ? Colors.orange
                         : Color.fromRGBO(224, 224, 225, 1),
                     fontSize: 12.0,
                     fontWeight: FontWeight.w600),
@@ -2095,7 +2095,7 @@ class _ProductDetailsState extends State<ProductDetails>
               : _singlePriceString,
           // _singlePriceString,
           style: TextStyle(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               fontSize: 16.0,
               fontWeight: FontWeight.w600),
         ),
@@ -2131,7 +2131,7 @@ class _ProductDetailsState extends State<ProductDetails>
           "/${_productDetails!.unit}",
           // _singlePriceString,
           style: TextStyle(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               fontSize: 16.0,
               fontWeight: FontWeight.w600),
         ),
@@ -2197,10 +2197,10 @@ class _ProductDetailsState extends State<ProductDetails>
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6.0),
-                color: MyTheme.accent_color,
+                color: Colors.orange,
                 boxShadow: [
                   BoxShadow(
-                    color: MyTheme.accent_color_shadow,
+                    color: Colors.orange,
                     blurRadius: 20,
                     spreadRadius: 0.0,
                     offset: Offset(0.0, 10.0), // shadow direction: bottom right
@@ -2740,7 +2740,7 @@ class _ProductDetailsState extends State<ProductDetails>
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
                                 color: _currentImage == itemIndex
-                                    ? MyTheme.accent_color
+                                    ? Colors.orange
                                     : Color.fromRGBO(112, 112, 112, .3),
                                 width: _currentImage == itemIndex ? 2 : 1),
                             //shape: BoxShape.rectangle,

@@ -89,7 +89,7 @@ class _ListProductCardState extends State<ListProductCard> {
                           textAlign: TextAlign.left,
                           maxLines: 1,
                           style: TextStyle(
-                              color: MyTheme.accent_color,
+                              color: Colors.orange,
                               fontSize: 16,
                               fontWeight: FontWeight.w700),
                         ),

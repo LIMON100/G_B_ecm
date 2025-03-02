@@ -284,7 +284,7 @@ class _ClassifiedAdsDetailsState extends State<ClassifiedAdsDetails>
       child: Scaffold(
           extendBody: true,
           body: RefreshIndicator(
-            color: MyTheme.accent_color,
+            color: Colors.orange,
             backgroundColor: Colors.white,
             onRefresh: _onPageRefresh,
             child: CustomScrollView(
@@ -699,7 +699,7 @@ class _ClassifiedAdsDetailsState extends State<ClassifiedAdsDetails>
         Spacer(),
         Material(
           elevation: 8,
-          color: MyTheme.accent_color,
+          color: Colors.orange,
           borderRadius: BorderRadius.circular(50),
           child: IconButton(
               onPressed: () {
@@ -720,7 +720,7 @@ class _ClassifiedAdsDetailsState extends State<ClassifiedAdsDetails>
         Text(
           _productDetails!.unitPrice!,
           style: TextStyle(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               fontSize: 16.0,
               fontWeight: FontWeight.w600),
         ),
@@ -786,7 +786,7 @@ class _ClassifiedAdsDetailsState extends State<ClassifiedAdsDetails>
             child: Text(
               _productDetails!.unitPrice!,
               style: TextStyle(
-                  color: MyTheme.accent_color,
+                  color: Colors.orange,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w600),
             ),
@@ -1143,7 +1143,7 @@ class _ClassifiedAdsDetailsState extends State<ClassifiedAdsDetails>
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
                                 color: _currentImage == itemIndex
-                                    ? MyTheme.accent_color
+                                    ? Colors.orange
                                     : Color.fromRGBO(112, 112, 112, .3),
                                 width: _currentImage == itemIndex ? 2 : 1),
                             //shape: BoxShape.rectangle,

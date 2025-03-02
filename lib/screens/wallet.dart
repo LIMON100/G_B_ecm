@@ -149,7 +149,7 @@ class _WalletState extends State<Wallet> {
           backgroundColor: Colors.white,
           appBar: buildAppBar(context),
           body: RefreshIndicator(
-            color: MyTheme.accent_color,
+            color: Colors.orange,
             backgroundColor: Colors.white,
             onRefresh: _onPageRefresh,
             displacement: 10,
@@ -342,7 +342,7 @@ class _WalletState extends State<Wallet> {
                   Text(
                     convertPrice(_rechargeList[index].amount),
                     style: TextStyle(
-                        color: MyTheme.accent_color,
+                        color: Colors.orange,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),
@@ -381,7 +381,7 @@ class _WalletState extends State<Wallet> {
           width: DeviceInfo(context).width! / 2.3,
           height: 90,
           decoration: BoxDecorations.buildBoxDecoration_1().copyWith(
-            color: MyTheme.accent_color,
+            color: Colors.orange,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Column(
@@ -540,12 +540,12 @@ class _WalletState extends State<Wallet> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6.0),
                         side: BorderSide(
-                            color: MyTheme.accent_color, width: 1.0)),
+                            color: Colors.orange, width: 1.0)),
                     child: Text(
                       AppLocalizations.of(context)!.close_ucf,
                       style: TextStyle(
                         fontSize: 10,
-                        color: MyTheme.accent_color,
+                        color: Colors.orange,
                       ),
                     ),
                     onPressed: () {
@@ -561,7 +561,7 @@ class _WalletState extends State<Wallet> {
                   child: Btn.minWidthFixHeight(
                     minWidth: 75,
                     height: 30,
-                    color: MyTheme.accent_color,
+                    color: Colors.orange,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
                     ),

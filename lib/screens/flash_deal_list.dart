@@ -186,7 +186,7 @@ class _FlashDealListState extends State<FlashDealList> {
                                   ? Text(
                                       AppLocalizations.of(context)!.ended_ucf,
                                       style: TextStyle(
-                                          color: MyTheme.accent_color,
+                                          color: Colors.orange,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600),
                                     )
@@ -308,7 +308,7 @@ class _FlashDealListState extends State<FlashDealList> {
                   .products[productIndex].price),
               style: TextStyle(
                   fontSize: 13,
-                  color: MyTheme.accent_color,
+                  color: Colors.orange,
                   fontWeight: FontWeight.bold),
             ),
           )
@@ -547,7 +547,7 @@ class _FlashDealListState extends State<FlashDealList> {
       padding: EdgeInsets.all(6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: MyTheme.accent_color,
+        color: Colors.orange,
       ),
     );
   }

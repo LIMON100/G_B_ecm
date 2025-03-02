@@ -410,7 +410,7 @@ class _OrderListState extends State<OrderList> {
       ));
     } else if (_orderList.length > 0) {
       return RefreshIndicator(
-        // color: MyTheme.accent_color,
+        // color: Colors.orange,
         color: Colors.black,
         backgroundColor: Colors.white,
         displacement: 0,
@@ -465,7 +465,7 @@ class _OrderListState extends State<OrderList> {
               child: Text(
                 _orderList[index].code,
                 style: TextStyle(
-                    // color: MyTheme.accent_color,
+                    // color: Colors.orange,
                     color: Colors.black,
                     fontSize: 13,
                     fontWeight: FontWeight.w600),

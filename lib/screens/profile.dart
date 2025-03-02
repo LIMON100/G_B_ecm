@@ -188,8 +188,8 @@ class _ProfileState extends State<Profile> {
           Container(
               height: DeviceInfo(context).height! / 1.6,
               width: DeviceInfo(context).width,
-              // color: MyTheme.accent_color,
-              color: Colors.black,
+              // color: Colors.orange,
+              color: Colors.orange,
               alignment: Alignment.topRight,
               child: Image.asset(
                 "assets/background_1.png",
@@ -206,7 +206,7 @@ class _ProfileState extends State<Profile> {
 
   RefreshIndicator buildBody() {
     return RefreshIndicator(
-      color: MyTheme.accent_color,
+      color: Colors.orange,
       backgroundColor: Colors.red,
       onRefresh: _onPageRefresh,
       displacement: 10,
@@ -265,7 +265,8 @@ class _ProfileState extends State<Profile> {
                       },
                       child: Icon(
                         Icons.close,
-                        color: MyTheme.white,
+                        // color: MyTheme.white,
+                        color: Colors.black,
                         size: 20,
                       )),
                 ),
@@ -996,7 +997,7 @@ class _ProfileState extends State<Profile> {
                     ? AppLocalizations.of(context)!.logout_ucf
                     : LangText(context).local!.login_ucf,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 10,
                     fontWeight: FontWeight.w500),
               ),
@@ -1024,7 +1025,8 @@ class _ProfileState extends State<Profile> {
                 "${user_name.$}",
                 style: TextStyle(
                     fontSize: 14,
-                    color: MyTheme.white,
+                    // color: MyTheme.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
               Padding(
@@ -1042,7 +1044,8 @@ class _ProfileState extends State<Profile> {
             "Login/Registration",
             style: TextStyle(
                 fontSize: 14,
-                color: MyTheme.white,
+                // color: MyTheme.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold),
           );
   }

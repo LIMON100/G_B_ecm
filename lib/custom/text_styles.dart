@@ -19,11 +19,11 @@ class TextStyles {
   }
 
   static TextStyle largeBoldAccentTexStyle() {
-    return TextStyle(fontSize: 16, color: MyTheme.accent_color,fontWeight: FontWeight.w700);
+    return TextStyle(fontSize: 16, color: Colors.orange,fontWeight: FontWeight.w700);
   }
 
   static TextStyle smallBoldAccentTexStyle() {
-    return TextStyle(fontSize: 13, color: MyTheme.accent_color,fontWeight: FontWeight.w700);
+    return TextStyle(fontSize: 13, color: Colors.orange,fontWeight: FontWeight.w700);
   }
 
 }

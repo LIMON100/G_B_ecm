@@ -754,7 +754,7 @@ class _FilterState extends State<Filter> {
                           suggestion.query,
                           style: TextStyle(
                               color: suggestion.type != "search"
-                                  ? MyTheme.accent_color
+                                  ? Colors.orange
                                   : MyTheme.font_grey),
                         ),
                         subtitle: Text(subtitle,
@@ -1117,7 +1117,7 @@ class _FilterState extends State<Filter> {
     } else if (_productList.length > 0) {
       return RefreshIndicator(
         color: Colors.white,
-        backgroundColor: MyTheme.accent_color,
+        backgroundColor: Colors.orange,
         onRefresh: _onProductListRefresh,
         child: SingleChildScrollView(
           controller: _productScrollController,
@@ -1188,7 +1188,7 @@ class _FilterState extends State<Filter> {
     } else if (_brandList.length > 0) {
       return RefreshIndicator(
         color: Colors.white,
-        backgroundColor: MyTheme.accent_color,
+        backgroundColor: Colors.orange,
         onRefresh: _onBrandListRefresh,
         child: SingleChildScrollView(
           controller: _brandScrollController,
@@ -1257,7 +1257,7 @@ class _FilterState extends State<Filter> {
     } else if (_shopList.length > 0) {
       return RefreshIndicator(
         color: Colors.white,
-        backgroundColor: MyTheme.accent_color,
+        backgroundColor: Colors.orange,
         onRefresh: _onShopListRefresh,
         child: SingleChildScrollView(
           controller: _shopScrollController,

@@ -139,7 +139,7 @@ class _CategoryProductsState extends State<CategoryProducts> {
       flexibleSpace: Container(
         height: DeviceInfo(context).height! / 4,
         width: DeviceInfo(context).width,
-        // color: MyTheme.accent_color,
+        // color: Colors.orange,
         color: Colors.black,
         alignment: Alignment.topRight,
         child: Image.asset(
@@ -327,7 +327,7 @@ class _CategoryProductsState extends State<CategoryProducts> {
               .buildProductGridShimmer(scontroller: _scrollController));
     } else if (_productList.length > 0) {
       return RefreshIndicator(
-        color: MyTheme.accent_color,
+        color: Colors.orange,
         backgroundColor: Colors.white,
         displacement: 0,
         onRefresh: _onRefresh,

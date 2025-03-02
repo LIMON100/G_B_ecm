@@ -500,7 +500,7 @@ class _LoginState extends State<Login> {
                             AppLocalizations.of(context)!
                                 .or_login_with_a_phone,
                             style: TextStyle(
-                                // color: MyTheme.accent_color,
+                                // color: Colors.orange,
                                 color: Colors.black,
                                 fontStyle: FontStyle.italic,
                                 decoration: TextDecoration.underline),
@@ -560,7 +560,7 @@ class _LoginState extends State<Login> {
                         child: Text(
                           AppLocalizations.of(context)!.or_login_with_an_email,
                           style: TextStyle(
-                              // color: MyTheme.accent_color,
+                              // color: Colors.orange,
                               color: Colors.black,
                               fontStyle: FontStyle.italic,
                               decoration: TextDecoration.underline),
@@ -605,7 +605,7 @@ class _LoginState extends State<Login> {
                         AppLocalizations.of(context)!
                             .login_screen_forgot_password,
                         style: TextStyle(
-                            // color: MyTheme.accent_color,
+                            // color: Colors.orange,
                             color: Colors.black,
                             fontStyle: FontStyle.italic,
                             decoration: TextDecoration.underline),
@@ -626,7 +626,7 @@ class _LoginState extends State<Login> {
                   child: Btn.minWidthFixHeight(
                     minWidth: MediaQuery.of(context).size.width,
                     height: 50,
-                    // color: MyTheme.accent_color,
+                    // color: Colors.orange,
                     // color: Colors.black,
                     color: Colors.green,
                     shape: RoundedRectangleBorder(
@@ -667,7 +667,7 @@ class _LoginState extends State<Login> {
                   child: Text(
                     AppLocalizations.of(context)!.login_screen_sign_up,
                     style: TextStyle(
-                        // color: MyTheme.accent_color,
+                        // color: Colors.orange,
                         color: Colors.black,
                         fontSize: 13,
                         fontWeight: FontWeight.w600),

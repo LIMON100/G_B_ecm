@@ -99,7 +99,7 @@ class _ClassifiedAdsCardState extends State<ClassifiedAdsCard> with SingleTicker
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: TextStyle(
-                                color: MyTheme.accent_color,
+                                color: Colors.orange,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -117,7 +117,7 @@ class _ClassifiedAdsCardState extends State<ClassifiedAdsCard> with SingleTicker
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
                     decoration: BoxDecoration(
-                      color:widget.condition=="new"?MyTheme.golden: MyTheme.accent_color,
+                      color:widget.condition=="new"?MyTheme.golden:  Colors.orange,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(6.0),
                         bottomLeft: Radius.circular(6.0),

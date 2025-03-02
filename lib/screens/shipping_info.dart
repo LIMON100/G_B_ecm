@@ -280,7 +280,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
 
   RefreshIndicator buildBody(BuildContext context) {
     return RefreshIndicator(
-      // color: MyTheme.accent_color,
+      // color: Colors.orange,
       color: Colors.black,
       backgroundColor: Colors.white,
       onRefresh: _onRefresh,
@@ -362,7 +362,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
         child: Center(
           child: CircularProgressIndicator(
             strokeWidth: 3,
-            color: MyTheme.accent_color,
+            color: Colors.orange,
           ),
         ),
       );
@@ -403,7 +403,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
   Widget buildHomeDeliveryItemCard(index) {
     return Card(
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: MyTheme.accent_color, width: 2.0),
+        side: BorderSide(color: Colors.orange, width: 2.0),
         borderRadius: BorderRadius.circular(8.0),
       ),
       elevation: 0.0,
@@ -920,8 +920,8 @@ class _ShippingInfoState extends State<ShippingInfo> {
                   .size
                   .width,
               height: 50,
-              // color: MyTheme.accent_color,
-              color: Colors.black,
+              // color: Colors.orange,
+              color: Colors.orange,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0.0),
               ),
@@ -1045,7 +1045,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                   color: _sellerWiseShippingOption[sellerIndex]
                       .shippingOption == ShippingOption.PickUpPoint
                       ? MyTheme.white
-                      // : MyTheme.accent_color,
+                      // : color: Colors.orange,
                       : Colors.black,
                   fontWeight: _sellerWiseShippingOption[sellerIndex]
                       .shippingOption == ShippingOption.PickUpPoint
@@ -1061,7 +1061,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
   Widget buildAddressOption(BuildContext context, sellerIndex) {
     return Btn.basic(
       color: _sellerWiseShippingOption[sellerIndex].shippingOption ==
-          ShippingOption.HomeDelivery ? Colors.black : MyTheme
+          ShippingOption.HomeDelivery ? Colors.orange : MyTheme
           .accent_color.withOpacity(0.1),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),
@@ -1100,7 +1100,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                   color: _sellerWiseShippingOption[sellerIndex]
                       .shippingOption == ShippingOption.HomeDelivery
                       ? MyTheme.white
-                      // : MyTheme.accent_color,
+                      // : color: Colors.orange,
                       :Colors.black,
                   fontWeight: _sellerWiseShippingOption[sellerIndex]
                       .shippingOption == ShippingOption.HomeDelivery

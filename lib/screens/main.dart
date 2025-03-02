@@ -141,11 +141,11 @@ class _MainState extends State<Main> {
               currentIndex: _currentIndex,
               backgroundColor: Colors.white.withOpacity(0.95),
               unselectedItemColor: Color.fromRGBO(168, 175, 179, 1),
-              // selectedItemColor: MyTheme.accent_color,
+              // selectedItemcolor: Colors.orange,
               selectedItemColor: Colors.black,
               selectedLabelStyle: TextStyle(
                   fontWeight: FontWeight.w700,
-                  color: MyTheme.accent_color,
+                  color: Colors.orange,
                   fontSize: 12),
               unselectedLabelStyle: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -158,8 +158,8 @@ class _MainState extends State<Main> {
                       child: Image.asset(
                         "assets/home.png",
                         color: _currentIndex == 0
-                            // ? MyTheme.accent_color
-                            ? Colors.black
+                            // ? color: Colors.orange
+                            ? Colors.orange
                             : Color.fromRGBO(153, 153, 153, 1),
                         height: 16,
                       ),
@@ -171,8 +171,8 @@ class _MainState extends State<Main> {
                       child: Image.asset(
                         "assets/categories.png",
                         color: _currentIndex == 1
-                            // ? MyTheme.accent_color
-                            ? Colors.black
+                            // ? color: Colors.orange
+                            ? Colors.orange
                             : Color.fromRGBO(153, 153, 153, 1),
                         height: 16,
                       ),
@@ -184,7 +184,7 @@ class _MainState extends State<Main> {
                       child: badges.Badge(
                         badgeStyle: badges.BadgeStyle(
                           shape: badges.BadgeShape.circle,
-                          // badgeColor: MyTheme.accent_color,
+                          // badgecolor: Colors.orange,
                           badgeColor: Colors.black,
                           borderRadius: BorderRadius.circular(10),
                           padding: EdgeInsets.all(5),
@@ -195,7 +195,7 @@ class _MainState extends State<Main> {
                         child: Image.asset(
                           "assets/cart.png",
                           color: _currentIndex == 2
-                              ? MyTheme.accent_color
+                              ? Colors.orange
                               : Color.fromRGBO(153, 153, 153, 1),
                           height: 16,
                         ),
@@ -217,7 +217,7 @@ class _MainState extends State<Main> {
                     child: Image.asset(
                       "assets/profile.png",
                       color: _currentIndex == 3
-                          ? MyTheme.accent_color
+                          ? Colors.orange
                           : Color.fromRGBO(153, 153, 153, 1),
                       height: 16,
                     ),

@@ -14,7 +14,7 @@ class InfoDialog {
         titlePadding: EdgeInsets.zero,
 
         title: Container(
-          decoration: BoxDecoration(color: MyTheme.accent_color,
+          decoration: BoxDecoration(color: Colors.orange,
             borderRadius: BorderRadius.only(topLeft: Radius.circular(4),topRight:Radius.circular(4), ),
           ),
           padding: EdgeInsets.only(left: 24,top: 8,bottom: 8),

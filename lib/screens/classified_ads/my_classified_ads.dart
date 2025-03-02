@@ -257,8 +257,8 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
             width: DeviceInfo(context).width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: MyTheme.accent_color, width: 1),
-              color: MyTheme.accent_color.withOpacity(0.2),
+              border: Border.all(color: Colors.orange, width: 1),
+              color: Colors.orange.withOpacity(0.2),
             ),
             child: InkWell(
               onTap: () {
@@ -294,7 +294,7 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
                         _currentPackageName!,
                         style: TextStyle(
                             fontSize: 10,
-                            color: MyTheme.accent_color,
+                            color: Colors.orange,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -306,14 +306,14 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
                         LangText(context).local!.upgrade_package_ucf,
                         style: TextStyle(
                             fontSize: 12,
-                            color: MyTheme.accent_color,
+                            color: Colors.orange,
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
                         width: 8,
                       ),
                       Image.asset("assets/next_arrow.png",
-                          color: MyTheme.accent_color, height: 8.7, width: 7),
+                          color: Colors.orange, height: 8.7, width: 7),
                     ],
                   ),
                 ],
@@ -334,7 +334,7 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 //border: Border.all(color: MyTheme.app_accent_border),
-                color: MyTheme.accent_color,
+                color: Colors.orange,
               ),
               height: 75,
               width: mWidht / 2 - 23,
@@ -421,7 +421,7 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: MyTheme.accent_color),
+                color: Colors.orange),
           ),
           SizedBox(
             height: 10,
@@ -542,7 +542,7 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
                     decoration: BoxDecoration(
                       color: condition == "new"
                           ? MyTheme.golden
-                          : MyTheme.accent_color,
+                          : Colors.orange,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(6.0),
                         bottomRight: Radius.circular(6.0),
@@ -595,7 +595,7 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
                 ),
                 actions: [
                   Btn.basic(
-                      color: MyTheme.accent_color,
+                      color: Colors.orange,
                       onPressed: () {
                         Navigator.pop(context);
                       },
@@ -604,7 +604,7 @@ class _MyClassifiedAdsState extends State<MyClassifiedAds> {
                         style: TextStyle(color: MyTheme.white, fontSize: 12),
                       )),
                   Btn.basic(
-                      color: MyTheme.accent_color,
+                      color: Colors.orange,
                       onPressed: () {
                         Navigator.pop(context);
                         deleteProduct(id);

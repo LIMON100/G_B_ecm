@@ -131,7 +131,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
           body: Stack(
             children: [
               RefreshIndicator(
-                color: MyTheme.accent_color,
+                color: Colors.orange,
                 backgroundColor: Colors.white,
                 onRefresh: _onRefresh,
                 displacement: 0,
@@ -221,7 +221,7 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
             decoration: BoxDecorations.buildBoxDecoration_1().copyWith(
                 border: Border.all(
                     color: _selected_index == index
-                        ? MyTheme.accent_color
+                        ? Colors.orange
                         : MyTheme.light_grey,
                     width: _selected_index == index ? 1.0 : 0.0)),
             child: Row(

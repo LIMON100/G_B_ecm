@@ -78,7 +78,7 @@ class _WishlistState extends State<Wishlist> {
           backgroundColor: Colors.white,
           appBar: buildAppBar(context),
           body: RefreshIndicator(
-            color: MyTheme.accent_color,
+            color: Colors.orange,
             backgroundColor: Colors.white,
             onRefresh: _onPageRefresh,
             child: CustomScrollView(
@@ -239,7 +239,7 @@ class _WishlistState extends State<Wishlist> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
-                                  color: MyTheme.accent_color,
+                                  color: Colors.orange,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600),
                             ),

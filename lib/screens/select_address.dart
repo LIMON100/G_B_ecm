@@ -176,7 +176,7 @@ class _SelectAddressState extends State<SelectAddress> {
 
   RefreshIndicator buildBody(BuildContext context) {
     return RefreshIndicator(
-      // color: MyTheme.accent_color,
+      // color: Colors.orange,
       color: Colors.black,
       backgroundColor: Colors.white,
       onRefresh: _onRefresh,
@@ -236,7 +236,7 @@ class _SelectAddressState extends State<SelectAddress> {
               style: TextStyle(
                   fontSize: 14,
                   decoration: TextDecoration.underline,
-                  // color: MyTheme.accent_color
+                  // color: color: Colors.orange
                   color: Colors.black
               ),
             ),
@@ -318,7 +318,7 @@ class _SelectAddressState extends State<SelectAddress> {
       child: Card(
         shape: RoundedRectangleBorder(
           side: _seleted_shipping_address == _shippingAddressList[index].id
-              // ? BorderSide(color: MyTheme.accent_color, width: 2.0)
+              // ? BorderSide(color: Colors.orange, width: 2.0)
               ? BorderSide(color: Colors.black, width: 2.0)
               : BorderSide(color: MyTheme.light_grey, width: 1.0),
           borderRadius: BorderRadius.circular(8.0),
@@ -551,8 +551,8 @@ class _SelectAddressState extends State<SelectAddress> {
             Btn.minWidthFixHeight(
               minWidth: MediaQuery.of(context).size.width,
               height: 50,
-              // color: MyTheme.accent_color,
-              color: Colors.black,
+              // color: Colors.orange,
+              color: Colors.orange,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0.0),
               ),

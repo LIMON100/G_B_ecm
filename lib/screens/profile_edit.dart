@@ -244,7 +244,8 @@ class _ProfileEditState extends State<ProfileEdit> {
           )));
     } else {
       return RefreshIndicator(
-        color: MyTheme.accent_color,
+        // color: Colors.orange,
+        color: Colors.orange,
         backgroundColor: Colors.white,
         onRefresh: _onPageRefresh,
         displacement: 10,
@@ -359,7 +360,8 @@ class _ProfileEditState extends State<ProfileEdit> {
               style: TextStyle(
                 fontFamily: 'Public Sans',
                 fontSize: 16,
-                color: MyTheme.accent_color,
+                // color: Colors.orange,
+                color: Colors.orange,
                 fontWeight: FontWeight.w700,
               ),
               textHeightBehavior:
@@ -401,7 +403,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                       borderSide: BorderSide.none,
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: MyTheme.accent_color),
+                      borderSide: BorderSide(color: Colors.orange),
                     ),
                     suffixIcon: InkWell(
                       onTap: () {
@@ -412,7 +414,8 @@ class _ProfileEditState extends State<ProfileEdit> {
                         _showPassword
                             ? Icons.visibility_outlined
                             : Icons.visibility_off_outlined,
-                        color: MyTheme.accent_color,
+                        // color: Colors.orange,
+                        color: Colors.orange,
                       ),
                     ),
                   ),
@@ -424,7 +427,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                   AppLocalizations.of(context)!
                       .password_must_contain_at_least_6_characters,
                   style: TextStyle(
-                      color: MyTheme.accent_color, fontStyle: FontStyle.italic),
+                      color: Colors.orange, fontStyle: FontStyle.italic),
                 ),
               )
             ],
@@ -458,7 +461,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                         borderSide: BorderSide.none,
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: MyTheme.accent_color),
+                        borderSide: BorderSide(color: Colors.orange),
                       ),
                       suffixIcon: InkWell(
                         onTap: () {
@@ -469,7 +472,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                           _showConfirmPassword
                               ? Icons.visibility_outlined
                               : Icons.visibility_off_outlined,
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                         ),
                       )),
             ),
@@ -484,7 +487,7 @@ class _ProfileEditState extends State<ProfileEdit> {
 
               minWidth: MediaQuery.of(context).size.width,
               padding: EdgeInsets.symmetric(vertical: 12),
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               shape: RoundedRectangleBorder(
                   borderRadius: const BorderRadius.all(Radius.circular(8.0))),
               child: Text(
@@ -544,7 +547,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                   borderSide: BorderSide.none,
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: MyTheme.accent_color),
+                  borderSide: BorderSide(color: Colors.orange),
                 ),
               ),
             ),
@@ -577,7 +580,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                   borderSide: BorderSide.none,
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: MyTheme.accent_color),
+                  borderSide: BorderSide(color: Colors.orange),
                 ),
               ),
             ),
@@ -642,7 +645,8 @@ class _ProfileEditState extends State<ProfileEdit> {
             child: Btn.basic(
               minWidth: MediaQuery.of(context).size.width,
               padding: EdgeInsets.symmetric(vertical: 12),
-              color: MyTheme.accent_color,
+              // color: Colors.orange,
+              color: Colors.orange,
               shape: RoundedRectangleBorder(
                   borderRadius: const BorderRadius.all(Radius.circular(8.0))),
               child: Text(

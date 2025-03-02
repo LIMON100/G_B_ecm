@@ -269,7 +269,7 @@ class _CartState extends State<Cart> {
           body: Stack(
             children: [
               RefreshIndicator(
-                // color: MyTheme.accent_color,
+                // color: Colors.orange,
                 color: Colors.black,
                 backgroundColor: Colors.white,
                 onRefresh: _onRefresh,
@@ -340,7 +340,7 @@ class _CartState extends State<Cart> {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(_cartTotalString,
                         style: TextStyle(
-                            color: MyTheme.accent_color,
+                            color: Colors.orange,
                             fontSize: 14,
                             fontWeight: FontWeight.w600)),
                   ),
@@ -357,7 +357,7 @@ class _CartState extends State<Cart> {
                 //     decoration: BoxDecoration(
                 //         color: Colors.white,
                 //         // border:
-                //         //     Border.all(color: MyTheme.accent_color, width: 1),
+                //         //     Border.all(color: Colors.orange, width: 1),
                 //         borderRadius: app_language_rtl.$!
                 //             ? const BorderRadius.only(
                 //                 topLeft: const Radius.circular(0.0),
@@ -411,7 +411,7 @@ class _CartState extends State<Cart> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         border:
-                            Border.all(color: MyTheme.accent_color, width: 1),
+                            Border.all(color: Colors.orange, width: 1),
                         borderRadius: app_language_rtl.$!
                             ? const BorderRadius.only(
                                 topLeft: const Radius.circular(6.0),
@@ -427,8 +427,8 @@ class _CartState extends State<Cart> {
                               )),
                     child: Btn.basic(
                       minWidth: MediaQuery.of(context).size.width,
-                      // color: MyTheme.accent_color,
-                      color: Colors.black,
+                      // color: Colors.orange,
+                      color: Colors.orange,
                       shape: app_language_rtl.$!
                           ? RoundedRectangleBorder(
                               borderRadius: const BorderRadius.only(
@@ -527,7 +527,7 @@ class _CartState extends State<Cart> {
                                 SystemConfig.systemCurrency!.symbol) ??
                             '',
                         style: TextStyle(
-                            // color: MyTheme.accent_color,
+                            // color: Colors.orange,
                             color: Colors.black,
                             fontWeight: FontWeight.w700,
                             fontSize: 12),
@@ -626,7 +626,7 @@ class _CartState extends State<Cart> {
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             style: TextStyle(
-                                color: MyTheme.accent_color,
+                                color: Colors.orange,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -688,7 +688,7 @@ class _CartState extends State<Cart> {
                                     .cartItems[item_index]
                                     .auctionProduct ==
                                 0
-                            ? MyTheme.accent_color
+                            ? Colors.orange
                             : MyTheme.grey_153,
                         size: 12,
                       ),
@@ -702,7 +702,7 @@ class _CartState extends State<Cart> {
                           .quantity
                           .toString(),
                       style:
-                          TextStyle(color: MyTheme.accent_color, fontSize: 16),
+                          TextStyle(color: Colors.orange, fontSize: 16),
                     ),
                   ),
                   GestureDetector(
@@ -726,7 +726,7 @@ class _CartState extends State<Cart> {
                                     .cartItems[item_index]
                                     .auctionProduct ==
                                 0
-                            ? MyTheme.accent_color
+                            ? Colors.orange
                             : MyTheme.grey_153,
                         size: 12,
                       ),

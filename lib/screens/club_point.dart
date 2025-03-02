@@ -114,7 +114,7 @@ class _ClubpointState extends State<Clubpoint> {
             onPopped(value);
           });
         },
-        textColor: MyTheme.accent_color,
+        textColor: Colors.orange,
         disabledTextColor: Colors.grey,
       ),
     );
@@ -128,7 +128,7 @@ class _ClubpointState extends State<Clubpoint> {
         body: Stack(
           children: [
             RefreshIndicator(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               backgroundColor: Colors.white,
               onRefresh: _onRefresh,
               displacement: 0,
@@ -302,7 +302,7 @@ class _ClubpointState extends State<Clubpoint> {
                     Text(
                       _list[index].convertible_club_point.toString(),
                       style: TextStyle(
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
@@ -332,7 +332,7 @@ class _ClubpointState extends State<Clubpoint> {
                                 height: 24,
                                 width: 80,
                                 child: Btn.basic(
-                                  color: MyTheme.accent_color,
+                                  color: Colors.orange,
                                   child: Text(
                                     AppLocalizations.of(context)!
                                         .convert_now_ucf,
@@ -356,7 +356,7 @@ class _ClubpointState extends State<Clubpoint> {
                     Text(
                       _list[index].points.toString(),
                       style: TextStyle(
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                           fontSize: 16,
                           fontWeight: FontWeight.w600),
                     ),
@@ -373,7 +373,7 @@ class _ClubpointState extends State<Clubpoint> {
                       width: 80,
 
                       child: FlatButton(
-                        color: MyTheme.accent_color,
+                        color: Colors.orange,
                         child: Text(
                           AppLocalizations.of(context).club_point_screen_convert,
                           style: TextStyle(color: Colors.white),
@@ -439,7 +439,7 @@ class _ClubpointState extends State<Clubpoint> {
                     Text(
                       _list[index].points.toString(),
                       style: TextStyle(
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                           fontSize: 16,
                           fontWeight: FontWeight.w600),
                     ),
@@ -456,7 +456,7 @@ class _ClubpointState extends State<Clubpoint> {
                       width: 80,
 
                       child: FlatButton(
-                        color: MyTheme.accent_color,
+                        color: Colors.orange,
                         child: Text(
                           AppLocalizations.of(context).club_point_screen_convert,
                           style: TextStyle(color: Colors.white),

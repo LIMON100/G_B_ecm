@@ -226,7 +226,7 @@ class _AuctionPurchaseHistoryState extends State<AuctionPurchaseHistory> {
 
   buildAuctionPurchaseList() {
     return RefreshIndicator(
-      // color: MyTheme.accent_color,
+      // color: Colors.orange,
       color: Colors.black,
       backgroundColor: Colors.white,
       displacement: 0,

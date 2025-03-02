@@ -208,7 +208,7 @@ class _SellerDetailsState extends State<SellerDetails> {
           appBar: buildAppBar(context),
           //bottomNavigationBar: buildBottomAppBar(context),
           body: RefreshIndicator(
-            color: MyTheme.accent_color,
+            color: Colors.orange,
             backgroundColor: Colors.white,
             onRefresh: _onPageRefresh,
             child: CustomScrollView(
@@ -541,7 +541,7 @@ class _SellerDetailsState extends State<SellerDetails> {
       decoration: BoxDecorations.buildBoxDecoration_1(),
       child: Btn.basic(
         padding: EdgeInsets.zero,
-        color: tabOptionIndex == index ? MyTheme.accent_color : MyTheme.white,
+        color: tabOptionIndex == index ? Colors.orange : MyTheme.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),
         ),
@@ -661,7 +661,7 @@ class _SellerDetailsState extends State<SellerDetails> {
     return Btn.minWidthFixHeight(
       minWidth: MediaQuery.of(context).size.width,
       height: 50,
-      color: MyTheme.accent_color,
+      color: Colors.orange,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(0.0),
       ),

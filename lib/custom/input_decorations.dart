@@ -18,7 +18,7 @@ class InputDecorations {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               width: 0.5),
           borderRadius: const BorderRadius.all(
             const Radius.circular(6.0),
@@ -38,7 +38,7 @@ class InputDecorations {
               bottomRight: Radius.circular(6.0)),
         ),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: MyTheme.accent_color, width: 0.5),
+            borderSide: BorderSide(color: Colors.orange, width: 0.5),
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(6.0),
                 bottomRight: Radius.circular(6.0))),

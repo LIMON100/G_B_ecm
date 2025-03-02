@@ -144,7 +144,7 @@ class _ProductReviewsState extends State<ProductReviews> {
           body: Stack(
             children: [
               RefreshIndicator(
-                color: MyTheme.accent_color,
+                color: Colors.orange,
                 backgroundColor: Colors.white,
                 onRefresh: _onRefresh,
                 displacement: 0,
@@ -210,7 +210,7 @@ class _ProductReviewsState extends State<ProductReviews> {
       ),
       title: Text(
         AppLocalizations.of(context)!.reviews_ucf,
-        style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+        style: TextStyle(fontSize: 16, color: Colors.orange),
       ),
       elevation: 0.0,
       titleSpacing: 0,
@@ -470,7 +470,7 @@ class _ProductReviewsState extends State<ProductReviews> {
                   height: 40,
                   margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 2.0),
                   decoration: BoxDecoration(
-                    color: MyTheme.accent_color,
+                    color: Colors.orange,
                     borderRadius: BorderRadius.circular(35),
                     border: Border.all(
                         color: Color.fromRGBO(112, 112, 112, .3), width: 1),

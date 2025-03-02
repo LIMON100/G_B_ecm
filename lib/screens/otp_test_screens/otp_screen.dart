@@ -106,7 +106,7 @@
 //                   child: Text(
 //                     "Verify",
 //                     style: TextStyle(
-//                       // color: MyTheme.accent_color,
+//                       // color: Colors.orange,
 //                         color: Colors.black,
 //                         fontSize: 22,
 //                         fontWeight: FontWeight.w600),
@@ -248,7 +248,7 @@ import 'package:ecom_flutter/screens/registration.dart' as rg;
 //                 child: Text(
 //                   "Verify",
 //                   style: TextStyle(
-//                     // color: MyTheme.accent_color,
+//                     // color: Colors.orange,
 //                       color: Colors.black,
 //                       fontSize: 22,
 //                       fontWeight: FontWeight.w600),

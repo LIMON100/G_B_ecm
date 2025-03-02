@@ -113,7 +113,7 @@
 //                       ? AppLocalizations.of(context)!.email_ucf
 //                       : AppLocalizations.of(context)!.phone_ucf,
 //                   style: TextStyle(
-//                       color: MyTheme.accent_color, fontWeight: FontWeight.w600),
+//                       color: Colors.orange, fontWeight: FontWeight.w600),
 //                 ),
 //               ),
 //               if (_send_code_by == "email")
@@ -142,7 +142,7 @@
 //                                 AppLocalizations.of(context)!
 //                                     .or_send_code_via_phone_number,
 //                                 style: TextStyle(
-//                                     color: MyTheme.accent_color,
+//                                     color: Colors.orange,
 //                                     fontStyle: FontStyle.italic,
 //                                     decoration: TextDecoration.underline),
 //                               ),
@@ -199,7 +199,7 @@
 //                         child: Text(
 //                           AppLocalizations.of(context)!.or_send_code_via_email,
 //                           style: TextStyle(
-//                               color: MyTheme.accent_color,
+//                               color: Colors.orange,
 //                               fontStyle: FontStyle.italic,
 //                               decoration: TextDecoration.underline),
 //                         ),
@@ -213,7 +213,7 @@
 //                   height: 45,
 //                   child: Btn.basic(
 //                     minWidth: MediaQuery.of(context).size.width,
-//                     // color: MyTheme.accent_color,
+//                     // color: Colors.orange,
 //                     color: Colors.black,
 //                     shape: RoundedRectangleBorder(
 //                       borderRadius: const BorderRadius.all(

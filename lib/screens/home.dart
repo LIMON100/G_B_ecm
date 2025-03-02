@@ -87,7 +87,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     return Stack(
                       children: [
                         RefreshIndicator(
-                          // color: MyTheme.accent_color,
+                          // color: Colors.orange,
                           color: Colors.black,
                           backgroundColor: Colors.white,
                           onRefresh: homeData.onRefresh,
@@ -205,8 +205,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               SliverList(
                                 delegate: SliverChildListDelegate([
                                   Container(
-                                    // color: MyTheme.accent_color,
-                                    color: Colors.black,
+                                    // color: Colors.orange,
+                                    color: Colors.orange,
                                     child: Stack(
                                       children: [
                                         Container(

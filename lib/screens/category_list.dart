@@ -61,8 +61,8 @@ class _CategoryListState extends State<CategoryList> {
         Container(
           height: DeviceInfo(context).height! / 4,
           width: DeviceInfo(context).width,
-          // color: MyTheme.accent_color,
-          color: Colors.black,
+          // color: Colors.orange,
+          color: Colors.orange,
           alignment: Alignment.topRight,
           child: Image.asset(
             "assets/background_1.png",
@@ -432,7 +432,7 @@ class _CategoryListState extends State<CategoryList> {
                 height: 40,
                 child: Btn.basic(
                   minWidth: MediaQuery.of(context).size.width,
-                  color: MyTheme.accent_color,
+                  color: Colors.orange,
                   shape: RoundedRectangleBorder(
                       borderRadius:
                           const BorderRadius.all(Radius.circular(8.0))),

@@ -250,7 +250,7 @@ class _OfflineState extends State<OfflineScreen> {
       ),
       title: Text(
         AppLocalizations.of(context)!.make_offline_payment_ucf,
-        style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+        style: TextStyle(fontSize: 16, color: Colors.orange),
       ),
       elevation: 0.0,
       titleSpacing: 0,
@@ -268,7 +268,7 @@ class _OfflineState extends State<OfflineScreen> {
           )));
     } else {
       return RefreshIndicator(
-        color: MyTheme.accent_color,
+        color: Colors.orange,
         backgroundColor: Colors.white,
         onRefresh: _onPageRefresh,
         displacement: 10,
@@ -331,7 +331,7 @@ class _OfflineState extends State<OfflineScreen> {
               child: Text(
                 "${AppLocalizations.of(context)!.amount_ucf}*",
                 style: TextStyle(
-                    color: MyTheme.accent_color, fontWeight: FontWeight.w600),
+                    color: Colors.orange, fontWeight: FontWeight.w600),
               ),
             ),
             Padding(
@@ -351,7 +351,7 @@ class _OfflineState extends State<OfflineScreen> {
               child: Text(
                 "${AppLocalizations.of(context)!.name_ucf}*",
                 style: TextStyle(
-                    color: MyTheme.accent_color, fontWeight: FontWeight.w600),
+                    color: Colors.orange, fontWeight: FontWeight.w600),
               ),
             ),
             Padding(
@@ -371,7 +371,7 @@ class _OfflineState extends State<OfflineScreen> {
               child: Text(
                 "${AppLocalizations.of(context)!.transaction_id_ucf}*",
                 style: TextStyle(
-                    color: MyTheme.accent_color, fontWeight: FontWeight.w600),
+                    color: Colors.orange, fontWeight: FontWeight.w600),
               ),
             ),
             Padding(
@@ -391,7 +391,7 @@ class _OfflineState extends State<OfflineScreen> {
               child: Text(
                 "${AppLocalizations.of(context)!.photo_proof_ucf}* (${AppLocalizations.of(context)!.only_image_file_allowed})",
                 style: TextStyle(
-                    color: MyTheme.accent_color, fontWeight: FontWeight.w600),
+                    color: Colors.orange, fontWeight: FontWeight.w600),
               ),
             ),
             Row(
@@ -448,7 +448,7 @@ class _OfflineState extends State<OfflineScreen> {
                             const BorderRadius.all(Radius.circular(8.0))),
                     child: Btn.basic(
                       minWidth: MediaQuery.of(context).size.width,
-                      color: MyTheme.accent_color,
+                      color: Colors.orange,
                       shape: RoundedRectangleBorder(
                           borderRadius:
                               const BorderRadius.all(Radius.circular(8.0))),

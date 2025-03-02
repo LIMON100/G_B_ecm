@@ -104,7 +104,7 @@ class _MiniProductCardState extends State<MiniProductCard> {
                           : widget.main_price!,
                       maxLines: 1,
                       style: TextStyle(
-                          color: MyTheme.accent_color,
+                          color: Colors.orange,
                           fontSize: 16,
                           fontWeight: FontWeight.w700),
                     ),

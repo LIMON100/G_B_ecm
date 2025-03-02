@@ -658,7 +658,7 @@ class _CheckoutState extends State<Checkout> {
                                   SystemConfig.systemCurrency!.symbol!)
                               : _totalString!,
                           style: TextStyle(
-                              // color: MyTheme.accent_color,
+                              // color: Colors.orange,
                               color: Colors.black,
 
                               fontSize: 14,
@@ -697,7 +697,7 @@ class _CheckoutState extends State<Checkout> {
           body: Stack(
             children: [
               RefreshIndicator(
-                // color: MyTheme.accent_color,
+                // color: Colors.orange,
                 color: Colors.black,
                 backgroundColor: Colors.white,
                 onRefresh: _onRefresh,
@@ -810,8 +810,8 @@ class _CheckoutState extends State<Checkout> {
                 height: 42,
                 child: Btn.basic(
                   minWidth: MediaQuery.of(context).size.width,
-                  // color: MyTheme.accent_color,
-                  color: Colors.black,
+                  // color: Colors.orange,
+                  color: Colors.orange,
                   shape: app_language_rtl.$!
                       ? RoundedRectangleBorder(
                           borderRadius: const BorderRadius.only(
@@ -840,7 +840,7 @@ class _CheckoutState extends State<Checkout> {
                 height: 42,
                 child: Btn.basic(
                   minWidth: MediaQuery.of(context).size.width,
-                  // color: MyTheme.accent_color,
+                  // color: Colors.orange,
                   color: Colors.black,
                   shape: RoundedRectangleBorder(
                       borderRadius: const BorderRadius.only(
@@ -931,7 +931,7 @@ class _CheckoutState extends State<Checkout> {
                 border: Border.all(
                     color: _selected_payment_method_key ==
                             _paymentTypeList[index].payment_type_key
-                        ? MyTheme.accent_color
+                        ? Colors.orange
                         : MyTheme.light_grey,
                     width: _selected_payment_method_key ==
                             _paymentTypeList[index].payment_type_key
@@ -1035,8 +1035,8 @@ class _CheckoutState extends State<Checkout> {
             Btn.minWidthFixHeight(
               minWidth: MediaQuery.of(context).size.width,
               height: 50,
-              // color: MyTheme.accent_color,
-              color: Colors.black,
+              // color: Colors.orange,
+              color: Colors.orange,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0.0),
               ),
@@ -1113,7 +1113,7 @@ class _CheckoutState extends State<Checkout> {
                               SystemConfig.systemCurrency!.symbol!)
                           : _totalString!,
                   style: TextStyle(
-                      // color: MyTheme.accent_color,
+                      // color: Colors.orange,
                       color: Colors.black,
                       fontSize: 14,
                       fontWeight: FontWeight.w600)),

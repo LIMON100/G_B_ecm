@@ -110,7 +110,7 @@ class _PurchasedDigitalProductCardState
             width: 134,
             margin: EdgeInsets.only(bottom: 14, top: 14),
             decoration: BoxDecoration(
-              color: MyTheme.accent_color,
+              color: Colors.orange,
               borderRadius: BorderRadius.circular(3.0),
             ),
             child: Center(

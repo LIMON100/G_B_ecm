@@ -167,7 +167,7 @@ class MapLocationState extends State<MapLocation>
                             Expanded(
                               flex: 1,
                               child: Btn.basic(
-                                color: MyTheme.accent_color,
+                                color: Colors.orange,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: const BorderRadius.only(
                                   topLeft: const Radius.circular(4.0),

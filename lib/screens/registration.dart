@@ -377,7 +377,7 @@ class _RegistrationState extends State<Registration> {
                           AppLocalizations.of(context)!
                               .or_register_with_a_phone,
                           style: TextStyle(
-                            // color: MyTheme.accent_color,
+                            // color: Colors.orange,
                               color: Colors.black,
                               fontStyle: FontStyle.italic,
                               decoration: TextDecoration.underline),
@@ -438,7 +438,7 @@ class _RegistrationState extends State<Registration> {
                           AppLocalizations.of(context)!
                               .or_register_with_an_email,
                           style: TextStyle(
-                            // color: MyTheme.accent_color,
+                            // color: Colors.orange,
                               color: Colors.black,
                               fontStyle: FontStyle.italic,
                               decoration: TextDecoration.underline),
@@ -605,7 +605,7 @@ class _RegistrationState extends State<Registration> {
                   child: Btn.minWidthFixHeight(
                     minWidth: MediaQuery.of(context).size.width,
                     height: 50,
-                    // color: MyTheme.accent_color,
+                    // color: Colors.orange,
                     color: Colors.green,
                     shape: RoundedRectangleBorder(
                         borderRadius:
@@ -642,7 +642,7 @@ class _RegistrationState extends State<Registration> {
                       child: Text(
                         AppLocalizations.of(context)!.log_in,
                         style: TextStyle(
-                          // color: MyTheme.accent_color,
+                          // color: Colors.orange,
                             color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.w600),
@@ -989,7 +989,7 @@ class _RegistrationState extends State<Registration> {
 //                                 AppLocalizations.of(context)!
 //                                     .or_register_with_a_phone,
 //                                 style: TextStyle(
-//                                     // color: MyTheme.accent_color,
+//                                     // color: Colors.orange,
 //                                     color: Colors.black,
 //                                     fontStyle: FontStyle.italic,
 //                                     decoration: TextDecoration.underline),
@@ -1050,7 +1050,7 @@ class _RegistrationState extends State<Registration> {
 //                           AppLocalizations.of(context)!
 //                               .or_register_with_an_email,
 //                           style: TextStyle(
-//                               // color: MyTheme.accent_color,
+//                               // color: Colors.orange,
 //                               color: Colors.black,
 //                               fontStyle: FontStyle.italic,
 //                               decoration: TextDecoration.underline),
@@ -1217,7 +1217,7 @@ class _RegistrationState extends State<Registration> {
 //                   child: Btn.minWidthFixHeight(
 //                     minWidth: MediaQuery.of(context).size.width,
 //                     height: 50,
-//                     // color: MyTheme.accent_color,
+//                     // color: Colors.orange,
 //                     color: Colors.black,
 //                     shape: RoundedRectangleBorder(
 //                         borderRadius:
@@ -1254,7 +1254,7 @@ class _RegistrationState extends State<Registration> {
 //                       child: Text(
 //                         AppLocalizations.of(context)!.log_in,
 //                         style: TextStyle(
-//                             // color: MyTheme.accent_color,
+//                             // color: Colors.orange,
 //                             color: Colors.black,
 //                             fontSize: 14,
 //                             fontWeight: FontWeight.w600),
@@ -1675,7 +1675,7 @@ class _RegistrationState extends State<Registration> {
 //                   child: Btn.minWidthFixHeight(
 //                     minWidth: MediaQuery.of(context).size.width,
 //                     height: 50,
-//                     // color: MyTheme.accent_color,
+//                     // color: Colors.orange,
 //                     color: Colors.black,
 //                     shape: RoundedRectangleBorder(
 //                         borderRadius:
@@ -1712,7 +1712,7 @@ class _RegistrationState extends State<Registration> {
 //                       child: Text(
 //                         AppLocalizations.of(context)!.log_in,
 //                         style: TextStyle(
-//                           // color: MyTheme.accent_color,
+//                           // color: Colors.orange,
 //                             color: Colors.black,
 //                             fontSize: 14,
 //                             fontWeight: FontWeight.w600),

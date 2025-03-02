@@ -206,7 +206,7 @@ class _FlutterwaveScreenState extends State<FlutterwaveScreen> {
       ),
       title: Text(
         "Pay with Flutterwave",
-        style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+        style: TextStyle(fontSize: 16, color: Colors.orange),
       ),
       elevation: 0.0,
       titleSpacing: 0,

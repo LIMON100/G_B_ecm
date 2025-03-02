@@ -232,7 +232,7 @@ class _UpdatePackageState extends State<UpdatePackage> {
               child: Container(
                 width: DeviceInfo(context).width! / 2,
                 decoration: BoxDecoration(
-                    color: MyTheme.accent_color,
+                    color: Colors.orange,
                     borderRadius: BorderRadius.circular(6)),
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: InkWell(
@@ -273,7 +273,7 @@ class _UpdatePackageState extends State<UpdatePackage> {
                   children: [
                     Icon(
                       Icons.check_circle,
-                      color: MyTheme.accent_color,
+                      color: Colors.orange,
                       size: 11,
                     ),
                     Text(
