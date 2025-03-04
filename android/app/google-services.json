@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "357403476051",
-    "project_id": "neharika-tds-4a2f6",
-    "storage_bucket": "neharika-tds-4a2f6.firebasestorage.app"
+    "project_number": "24090427839",
+    "project_id": "gandb-8f5ba",
+    "storage_bucket": "gandb-8f5ba.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:357403476051:android:fc4081cb82b6bd896c46a6",
+        "mobilesdk_app_id": "1:24090427839:android:e5a051db558d095b81610a",
         "android_client_info": {
-          "package_name": "com.gen21.neharika_ecom"
+          "package_name": "com.gen21.gbutcher_ecom"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAvFr7qG5sA_d5n5NjfoMaGEqejQXn-t3E"
+          "current_key": "AIzaSyBY_zTg4RDDpDvPcdWEmVySTCtU0-1E0FA"
         }
       ],
       "services": {
