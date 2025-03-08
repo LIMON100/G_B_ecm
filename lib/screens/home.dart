@@ -8,6 +8,7 @@ import 'package:ecom_flutter/presenter/home_presenter.dart';
 import 'package:ecom_flutter/screens/category_products.dart';
 import 'package:ecom_flutter/screens/filter.dart';
 import 'package:ecom_flutter/screens/flash_deal_list.dart';
+import 'package:ecom_flutter/screens/profile.dart';
 import 'package:ecom_flutter/screens/todays_deal_products.dart';
 import 'package:ecom_flutter/screens/top_sellers.dart';
 import 'package:ecom_flutter/ui_elements/mini_product_card.dart';
@@ -18,6 +19,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/widgets.dart';
+
+import '../helpers/auth_helper.dart';
+import 'main.dart';
+import 'order_list.dart';
 
 class Home extends StatefulWidget {
   Home({
@@ -354,6 +359,22 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             title: const Text('Profile'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.notification_add),
+            title: const Text('Order track'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => OrderList())); //
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('Wallet'),
+            onTap: () {
+              Navigator.pop(context);
               //Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen())); // Replace ProfileScreen
             },
           ),
@@ -377,10 +398,46 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
             onTap: () {
-              Navigator.pop(context);
-              // Handle logout logic here
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text("Logout Confirmation"), // Localized Title
+                    content: Text("Are you sure to Logout?"), // Localized Content
+                    actions: [
+                      TextButton(
+                        child: Text("no"), // Localized "No"
+                        onPressed: () {
+                          Navigator.of(context).pop(); // Dismiss the dialog
+                        },
+                      ),
+                      TextButton(
+                        child: Text("yes"), // Localized "Yes"
+                        onPressed: () {
+                          AuthHelper().clearUserData();
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => Main()), // Replace Main() with your starting screen
+                                (route) => false,
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
             },
           ),
+          // ListTile(
+          //   leading: const Icon(Icons.logout),
+          //   title: const Text('Logout'),
+          //   onTap: () {
+          //     AuthHelper().clearUserData();
+          //     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
+          //       return Main();
+          //     }), (route) => false);
+          //   },
+          // ),
         ],
       ),
     );
