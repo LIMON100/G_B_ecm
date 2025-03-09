@@ -399,7 +399,7 @@ class _WalletState extends State<Wallet> {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  convertPrice(_balanceDetails.balance),
+                  convertPrice(_balanceDetails!.balance),
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,

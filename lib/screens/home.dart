@@ -5,12 +5,14 @@ import 'package:ecom_flutter/helpers/shared_value_helper.dart';
 import 'package:ecom_flutter/helpers/shimmer_helper.dart';
 import 'package:ecom_flutter/my_theme.dart';
 import 'package:ecom_flutter/presenter/home_presenter.dart';
+import 'package:ecom_flutter/screens/WalletPage.dart';
 import 'package:ecom_flutter/screens/category_products.dart';
 import 'package:ecom_flutter/screens/filter.dart';
 import 'package:ecom_flutter/screens/flash_deal_list.dart';
 import 'package:ecom_flutter/screens/profile.dart';
 import 'package:ecom_flutter/screens/todays_deal_products.dart';
 import 'package:ecom_flutter/screens/top_sellers.dart';
+import 'package:ecom_flutter/screens/wallet.dart';
 import 'package:ecom_flutter/ui_elements/mini_product_card.dart';
 import 'package:ecom_flutter/ui_elements/product_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -19,6 +21,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../helpers/auth_helper.dart';
 import 'main.dart';
@@ -375,23 +378,47 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             title: const Text('Wallet'),
             onTap: () {
               Navigator.pop(context);
-              //Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen())); // Replace ProfileScreen
+              Navigator.push(context, MaterialPageRoute(builder: (context) => WalletPage()));
             },
           ),
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: const Text('About Us'),
-            onTap: () {
-              Navigator.pop(context);
-              //Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsScreen())); //Replace AboutUsScreen
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.info),
+          //   title: const Text('About Us'),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     //Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsScreen())); //Replace AboutUsScreen
+          //   },
+          // ),
           ListTile(
             leading: const Icon(Icons.privacy_tip),
             title: const Text('Privacy Policy'),
-            onTap: () {
-              Navigator.pop(context);
-              //Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyScreen())); //Replace PrivacyPolicyScreen
+            onTap: () async {
+              Navigator.pop(context); // Close the drawer
+
+              final Uri privacyPolicyUrl = Uri.parse("https://groceryandbutcher.shop/privacy-policy"); // Your URL
+
+              if (await canLaunchUrl(privacyPolicyUrl)) {
+                await launchUrl(privacyPolicyUrl, mode: LaunchMode.externalApplication);  // Launch the URL
+              } else {
+                // Handle the error if the URL can't be launched
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Error"), // Localized Error title
+                      content: Text("Could not launch Url"), // Localized Error message
+                      actions: [
+                        TextButton(
+                          child: Text(AppLocalizations.of(context)!.ok), // Localized OK button
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              }
             },
           ),
           ListTile(
