@@ -390,6 +390,9 @@
   "no_recharges_yet": "No recharges yet",
   "approval_status_ucf": "Approval Status",
   "wallet_balance_ucf": "Wallet Balance",
+
+
+
   "last_recharged": "Last recharged",
   "wallet_recharge_history_ucf": "Wallet Recharge History",
   "amount_ucf": "Amount",
@@ -738,6 +741,8 @@
         "payment_proof": "Payment Proof",
         "add_new_address": "Add New Address.",
         "back_ucf": "Back",
+
+
 
 
 
