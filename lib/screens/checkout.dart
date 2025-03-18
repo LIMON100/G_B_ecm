@@ -34,8 +34,7 @@
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:toast/toast.dart';
-//
-// import 'WalletPage.dart';
+// import 'package:ecom_flutter/screens/payment_type_response.dart';
 //
 // class Checkout extends StatefulWidget {
 //   int? order_id; // only need when making manual payment from order details
@@ -93,6 +92,10 @@
 //   String payment_type = "cart_payment";
 //   String? _title;
 //
+//   String _cardNumber = "";
+//   String _cardHolderName = "";
+//   String expiryDate = "";
+//   String cvv = "";
 //   bool _showCardSection = false;
 //
 //   @override
@@ -111,6 +114,9 @@
 //   void dispose() {
 //     super.dispose();
 //     _mainScrollController.dispose();
+//     _cardNumberController.dispose();
+//     _cardHolderNameController.dispose();
+//     _ccvController.dispose();
 //   }
 //
 //   fetchAll() {
@@ -126,6 +132,31 @@
 //         fetchSummary();
 //       }
 //     }
+//   }
+//
+//   Future<void> _loadSavedCards() async {
+//     final prefs = await SharedPreferences.getInstance();
+//     int cardCount = prefs.getInt('cardCount') ?? 0;
+//
+//     if (cardCount > 0) {
+//       String? cardNumber = prefs.getString('cardNumber_0');
+//       if (cardNumber != null) {
+//         setState(() {
+//           _cardNumber = cardNumber;
+//           _cardHolderName = prefs.getString('cardHolderName_0') ?? '';
+//           expiryDate = prefs.getString('expiryDate_0') ?? '';
+//           cvv = prefs.getString('cvv_0') ?? '';
+//
+//         });
+//       }
+//     }
+//     setState(() {
+//       _showCardSection = (_selected_payment_method_key == "card" && _cardNumber != "" &&
+//           _cardHolderName != "" &&
+//           expiryDate != "" &&
+//           cvv !=""
+//       );
+//     });
 //   }
 //
 //   fetchList() async {
@@ -164,6 +195,7 @@
 //     }
 //
 //     _isInitial = false;
+//     _loadSavedCards(); // Load any saved card info
 //     setState(() {});
 //   }
 //
@@ -219,8 +251,6 @@
 //     reset();
 //     fetchAll();
 //   }
-//
-//
 //
 //   onCouponApply() async {
 //     var coupon_code = _couponController.text.toString();
@@ -475,32 +505,6 @@
 //       })).then((value) {
 //         onPopped(value);
 //       });
-//     } else if (_selected_payment_method_key == "card") {
-//       // If card is selected
-//       setState(() {
-//         _selected_payment_method = "card";
-//         _selected_payment_method_key = "card"; // Set the key too
-//       });
-//       showModalBottomSheet( //Show the same modal that use befor
-//           context: context,
-//           isScrollControlled: true, //So I can see every value in form, I see that some people have trouble so I set it to true
-//           builder: (BuildContext context) {
-//             return Container(
-//               decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.only(
-//                     topLeft: Radius.circular(20.0),
-//                     topRight: Radius.circular(20.0),
-//                   ),
-//                   color: Colors.grey[900]), //Dark theme,
-//               padding: EdgeInsets.only(
-//                 bottom: MediaQuery.of(context).viewInsets.bottom,
-//               ), //So keyboard doesn't overlap
-//               child: Padding(
-//                 padding: const EdgeInsets.all(16.0),
-//                 child: WalletPage(), //Showing WalletPage
-//               ),
-//             );
-//           });
 //     }
 //   }
 //
@@ -566,7 +570,6 @@
 //         _selected_payment_method_key = "card";
 //       }
 //
-//       // Show or hide the card section based on selection
 //       _showCardSection = _selected_payment_method == "card";
 //     });
 //   }
@@ -780,10 +783,62 @@
 //                           padding: const EdgeInsets.all(16.0),
 //                           child: buildPaymentMethodList(),
 //                         ),
+//                       ]),
+//                     ),
 //
+//                     SliverVisibility(
+//                       visible: _showCardSection,
+//                       sliver: SliverList( // Put Sliverlist on here
+//                         delegate: SliverChildListDelegate([
+//                           Padding(
+//                             padding: const EdgeInsets.all(16.0),
+//                             child: Column(
+//                               crossAxisAlignment: CrossAxisAlignment.start,
+//                               children: [
+//                                 Text(
+//                                   "Card Information", //Add title
+//                                   style: TextStyle(
+//                                     fontSize: 18,
+//                                     fontWeight: FontWeight.bold,
+//                                     color: MyTheme.font_grey, //Changed color
+//                                   ),
+//                                 ),
+//                                 SizedBox(height: 12),
+//                                 Text(
+//                                   'Card Number: $_cardNumber', //Load Number
+//                                   style: TextStyle(
+//                                     fontSize: 16,
+//                                     color: MyTheme.font_grey,
+//                                   ),
+//                                 ),
+//                                 SizedBox(height: 8),
+//                                 Text(
+//                                   'Card Holder Name: $_cardHolderName',  //Load Name
+//                                   style: TextStyle(
+//                                     fontSize: 16,
+//                                     color: MyTheme.font_grey,
+//                                   ),
+//                                 ),
+//                                 SizedBox(height: 8),
+//                                 Text(
+//                                   'Expiry Data: $expiryDate',  //Load Data
+//                                   style: TextStyle(
+//                                     fontSize: 16,
+//                                     color: MyTheme.font_grey,
+//                                   ),
+//                                 ),
+//                               ],
+//                             ),
+//                           ),
+//                         ]),
+//                       ),
+//                     ),
+//
+//                     SliverList(
+//                       delegate: SliverChildListDelegate([
 //                         Container(
-//                           height: 140,
-//                         )
+//                           height: 140, // Add height so bottom bar is visible
+//                         ),
 //                       ]),
 //                     )
 //                   ],
@@ -799,15 +854,10 @@
 //                     : Container(
 //                   decoration: BoxDecoration(
 //                     color: Colors.white,
-//
-//                     /*border: Border(
-//                       top: BorderSide(color: MyTheme.light_grey,width: 1.0),
-//                     )*/
 //                   ),
 //                   height: widget.paymentFor == PaymentFor.ManualPayment
 //                       ? 80
 //                       : 140,
-//                   //color: Colors.white,
 //                   child: Padding(
 //                     padding: const EdgeInsets.all(16.0),
 //                     child: Column(
@@ -832,102 +882,102 @@
 //
 //   Row buildApplyCouponRow(BuildContext context) {
 //     return Row(
-//       children: [
-//       Container(
-//       height: 42,
-//       width: (MediaQuery.of(context).size.width - 32) * (2 / 3),
-//       child: TextFormField(
-//         controller: _couponController,
-//         readOnly: _coupon_applied!,
-//         autofocus: false,
-//         decoration: InputDecoration(
-//             hintText: AppLocalizations.of(context)!.enter_coupon_code,
-//             hintStyle:
-//             TextStyle(fontSize: 14.0, color: MyTheme.textfield_grey),
-//             enabledBorder: app_language_rtl.$!
-//                 ? OutlineInputBorder(
-//               borderSide: BorderSide(
-//                   color: MyTheme.textfield_grey, width: 0.5),
-//               borderRadius: const BorderRadius.only(
-//                 topRight: const Radius.circular(8.0),
-//                 bottomRight: const Radius.circular(8.0),
-//               ),
-//             )
-//                 : OutlineInputBorder(
-//               borderSide: BorderSide(
-//                   color: MyTheme.textfield_grey, width: 0.5),
-//               borderRadius: const BorderRadius.only(
-//                 topLeft: const Radius.circular(8.0),
-//                 bottomLeft: const Radius.circular(8.0),
-//               ),
-//             ),
-//             focusedBorder: OutlineInputBorder(
-//               borderSide:
-//               BorderSide(color: MyTheme.medium_grey, width: 0.5),
-//               borderRadius: const BorderRadius.only(
-//                 topLeft: const Radius.circular(8.0),
-//                 bottomLeft: const Radius.circular(8.0),
-//               ),
-//             ),
-//             contentPadding: EdgeInsets.only(left: 16.0)),
-//       ),
+//         children: [
+//         Container(
+//         height: 42,
+//         width: (MediaQuery.of(context).size.width - 32) * (2 / 3),
+//     child: TextFormField(
+//     controller: _couponController,
+//     readOnly: _coupon_applied!,
+//     autofocus: false,
+//     decoration: InputDecoration(
+//     hintText: AppLocalizations.of(context)!.enter_coupon_code,
+//     hintStyle:
+//     TextStyle(fontSize: 14.0, color: MyTheme.textfield_grey),
+//     enabledBorder: app_language_rtl.$!
+//     ? OutlineInputBorder(
+//     borderSide: BorderSide(
+//     color: MyTheme.textfield_grey, width: 0.5),
+//     borderRadius: const BorderRadius.only(
+//     topRight: const Radius.circular(8.0),
+//     bottomRight: const Radius.circular(8.0),
 //     ),
-//     !_coupon_applied!
-//     ? Container(
-//     width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
-//     height: 42,
-//     child: Btn.basic(
-//     minWidth: MediaQuery.of(context).size.width,
-//     // color: Colors.orange,
-//     color: Colors.orange,
-//     shape: app_language_rtl.$!
-//     ? RoundedRectangleBorder(
+//     )
+//         : OutlineInputBorder(
+//     borderSide: BorderSide(
+//     color: MyTheme.textfield_grey, width: 0.5),
 //     borderRadius: const BorderRadius.only(
 //     topLeft: const Radius.circular(8.0),
 //     bottomLeft: const Radius.circular(8.0),
-//     ))
-//         : RoundedRectangleBorder(
+//     ),
+//     ),
+//     focusedBorder: OutlineInputBorder(
+//     borderSide:
+//     BorderSide(color: MyTheme.medium_grey, width: 0.5),
 //     borderRadius: const BorderRadius.only(
-//     topRight: const Radius.circular(8.0),
-//     bottomRight: const Radius.circular(8.0),
-//     )),
-//     child: Text(
-//     AppLocalizations.of(context)!.apply_coupon_all_capital,
-//     style: TextStyle(
-//     color: Colors.white,
-//     fontSize: 13,
-//     fontWeight: FontWeight.w600),
+//     topLeft: const Radius.circular(8.0),
+//     bottomLeft: const Radius.circular(8.0),
 //     ),
-//     onPressed: () {
-//     onCouponApply();
-//     },
 //     ),
-//     )
-//         : Container(
-//     width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
-//     height: 42,
-//     child: Btn.basic(
-//     minWidth: MediaQuery.of(context).size.width,
-//     // color: Colors.orange,
-//     color: Colors.black,
-//     shape: RoundedRectangleBorder(
-//     borderRadius: const BorderRadius.only(
-//     topRight: const Radius.circular(8.0),
-//     bottomRight: const Radius.circular(8.0),
-//     )),
-//     child: Text(
-//     AppLocalizations.of(context)!.remove_ucf,
-//       style: TextStyle(
-//           color: Colors.white,
-//           fontSize: 13,
-//           fontWeight: FontWeight.w600),
+//     contentPadding: EdgeInsets.only(left: 16.0)),
 //     ),
-//       onPressed: () {
-//         onCouponRemove();
-//       },
-//     ),
-//     )
-//       ],
+//         ),
+//           !_coupon_applied!
+//               ? Container(
+//             width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
+//             height: 42,
+//             child: Btn.basic(
+//               minWidth: MediaQuery.of(context).size.width,
+//               // color: Colors.orange,
+//               color: Colors.orange,
+//               shape: app_language_rtl.$!
+//                   ? RoundedRectangleBorder(
+//                   borderRadius: const BorderRadius.only(
+//                     topLeft: const Radius.circular(8.0),
+//                     bottomLeft: const Radius.circular(8.0),
+//                   ))
+//                   : RoundedRectangleBorder(
+//                   borderRadius: const BorderRadius.only(
+//                     topRight: const Radius.circular(8.0),
+//                     bottomRight: const Radius.circular(8.0),
+//                   )),
+//               child: Text(
+//                 AppLocalizations.of(context)!.apply_coupon_all_capital,
+//                 style: TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 13,
+//                     fontWeight: FontWeight.w600),
+//               ),
+//               onPressed: () {
+//                 onCouponApply();
+//               },
+//             ),
+//           )
+//               : Container(
+//             width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
+//             height: 42,
+//             child: Btn.basic(
+//               minWidth: MediaQuery.of(context).size.width,
+//               // color: Colors.orange,
+//               color: Colors.black,
+//               shape: RoundedRectangleBorder(
+//                   borderRadius: const BorderRadius.only(
+//                     topRight: const Radius.circular(8.0),
+//                     bottomRight: const Radius.circular(8.0),
+//                   )),
+//               child: Text(
+//                 AppLocalizations.of(context)!.remove_ucf,
+//                 style: TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 13,
+//                     fontWeight: FontWeight.w600),
+//               ),
+//               onPressed: () {
+//                 onCouponRemove();
+//               },
+//             ),
+//           )
+//         ],
 //     );
 //   }
 //
@@ -1222,8 +1272,6 @@
 //
 // }
 
-
-
 import 'package:ecom_flutter/custom/box_decorations.dart';
 import 'package:ecom_flutter/custom/btn.dart';
 import 'package:ecom_flutter/custom/enum_classes.dart';
@@ -1258,9 +1306,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
-import 'package:ecom_flutter/screens/payment_type_response.dart';
 
 class Checkout extends StatefulWidget {
   int? order_id; // only need when making manual payment from order details
@@ -1318,31 +1364,20 @@ class _CheckoutState extends State<Checkout> {
   String payment_type = "cart_payment";
   String? _title;
 
-  String _cardNumber = "";
-  String _cardHolderName = "";
-  String expiryDate = "";
-  String cvv = "";
   bool _showCardSection = false;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    /*print("user data");
-    print(is_logged_in.$);
-    print(access_token.value);*/
-    print(widget.list);
-
     fetchAll();
   }
 
   @override
   void dispose() {
-    super.dispose();
-    _mainScrollController.dispose();
     _cardNumberController.dispose();
     _cardHolderNameController.dispose();
     _ccvController.dispose();
+    super.dispose();
   }
 
   fetchAll() {
@@ -1360,31 +1395,6 @@ class _CheckoutState extends State<Checkout> {
     }
   }
 
-  Future<void> _loadSavedCards() async {
-    final prefs = await SharedPreferences.getInstance();
-    int cardCount = prefs.getInt('cardCount') ?? 0;
-
-    if (cardCount > 0) {
-      String? cardNumber = prefs.getString('cardNumber_0');
-      if (cardNumber != null) {
-        setState(() {
-          _cardNumber = cardNumber;
-          _cardHolderName = prefs.getString('cardHolderName_0') ?? '';
-          expiryDate = prefs.getString('expiryDate_0') ?? '';
-          cvv = prefs.getString('cvv_0') ?? '';
-
-        });
-      }
-    }
-    setState(() {
-      _showCardSection = (_selected_payment_method_key == "card" && _cardNumber != "" &&
-          _cardHolderName != "" &&
-          expiryDate != "" &&
-          cvv !=""
-      );
-    });
-  }
-
   fetchList() async {
     String mode = '';
     setState(() {
@@ -1396,16 +1406,12 @@ class _CheckoutState extends State<Checkout> {
 
     var paymentTypeResponseList = await PaymentRepository()
         .getPaymentResponseList(list: widget.list, mode: mode);
-
-    // Map PaymentTypeResponse objects to PaymentTypeItem objects
-    _paymentTypeList.addAll(paymentTypeResponseList.map((response) => PaymentTypeItem(
-        response.payment_type,
-        response.title,
-        response.payment_type_key,
-        response.image
-    )));
+    _paymentTypeList.addAll(paymentTypeResponseList.map((e) => PaymentTypeItem.fromResponse(e)));
 
     //Add Card
+
+    String cardImage = 'assets/credit_card.png'; // Your Local asset Path or any logo for card
+
     _paymentTypeList.add(
       PaymentTypeItem(
           "card",
@@ -1421,7 +1427,6 @@ class _CheckoutState extends State<Checkout> {
     }
 
     _isInitial = false;
-    _loadSavedCards(); // Load any saved card info
     setState(() {});
   }
 
@@ -1734,6 +1739,36 @@ class _CheckoutState extends State<Checkout> {
     }
   }
 
+  //Function for formatting the card
+  String _formatCardNumber(String input) {
+    input = input.replaceAll(RegExp(r'\s+'), ''); // Remove non-digit
+    if (input.length > 16) {
+      input = input.substring(0, 16); //To not crash everything by not allowing over 16
+    }
+    String formatted = '';
+    for (int i = 0; i < input.length; i++) {
+      if (i > 0 && i % 4 == 0) {
+        formatted += ' ';
+      }
+      formatted += input[i];
+    }
+    return formatted;
+  }
+
+  //Set selection so the numbers doesn't overlap each other when formatting the card
+  void _onCardNumberChanged(String value) {
+    final cursorPosition = _cardNumberController.selection.base.offset;
+
+    final formattedValue = _formatCardNumber(value);
+
+    _cardNumberController.value = TextEditingValue(
+      text: formattedValue,
+      selection: TextSelection.collapsed(
+        offset: cursorPosition + (formattedValue.length - value.length),
+      ),
+    );
+  }
+
   pay_by_wallet() async {
     var orderCreateResponse = await PaymentRepository()
         .getOrderCreateResponseFromWallet(
@@ -1796,6 +1831,7 @@ class _CheckoutState extends State<Checkout> {
         _selected_payment_method_key = "card";
       }
 
+      // Show or hide the card section based on selection
       _showCardSection = _selected_payment_method == "card";
     });
   }
@@ -2009,62 +2045,17 @@ class _CheckoutState extends State<Checkout> {
                           padding: const EdgeInsets.all(16.0),
                           child: buildPaymentMethodList(),
                         ),
-                      ]),
-                    ),
 
-                    SliverVisibility(
-                      visible: _showCardSection,
-                      sliver: SliverList( // Put Sliverlist on here
-                        delegate: SliverChildListDelegate([
+                        if (_showCardSection) ...[
                           Padding(
                             padding: const EdgeInsets.all(16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Card Information", //Add title
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: MyTheme.font_grey, //Changed color
-                                  ),
-                                ),
-                                SizedBox(height: 12),
-                                Text(
-                                  'Card Number: $_cardNumber', //Load Number
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: MyTheme.font_grey,
-                                  ),
-                                ),
-                                SizedBox(height: 8),
-                                Text(
-                                  'Card Holder Name: $_cardHolderName',  //Load Name
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: MyTheme.font_grey,
-                                  ),
-                                ),
-                                SizedBox(height: 8),
-                                Text(
-                                  'Expiry Data: $expiryDate',  //Load Data
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: MyTheme.font_grey,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            child: _buildCardInputForm(),
                           ),
-                        ]),
-                      ),
-                    ),
+                        ],
 
-                    SliverList(
-                      delegate: SliverChildListDelegate([
                         Container(
-                          height: 140, // Add height so bottom bar is visible
-                        ),
+                          height: 140,
+                        )
                       ]),
                     )
                   ],
@@ -2080,10 +2071,15 @@ class _CheckoutState extends State<Checkout> {
                     : Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
+
+                    /*border: Border(
+                      top: BorderSide(color: MyTheme.light_grey,width: 1.0),
+                    )*/
                   ),
                   height: widget.paymentFor == PaymentFor.ManualPayment
                       ? 80
                       : 140,
+                  //color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -2106,104 +2102,455 @@ class _CheckoutState extends State<Checkout> {
     );
   }
 
+  // Widget _buildCardInputForm() {
+  //   return Card(
+  //       elevation: 8,
+  //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  //       color: MyTheme.soft_accent_color, // Customize the card appearance
+  //
+  //       child: Padding(
+  //       padding: const EdgeInsets.all(20.0),
+  //   child: Form(
+  //     key: _formKey,
+  //     child: Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //     Text(
+  //     "Card Information",
+  //     style: TextStyle(
+  //     fontSize: 18,
+  //     fontWeight: FontWeight.bold,
+  //     color: Colors.black
+  //     ),
+  //     ),
+  //     SizedBox(height: 10),
+  //     TextFormField(
+  //     controller: _cardNumberController,
+  //     decoration: InputDecoration(
+  //     labelText: "Card Number",
+  //     labelStyle: TextStyle(color: Colors.grey[800]),
+  //     ),
+  //     keyboardType: TextInputType.number,
+  //     validator: (value) {
+  //     if (value == null || value.isEmpty) {
+  //     return "Please enter your card number";
+  //     }
+  //     return null;
+  //     },
+  //     ),
+  //     SizedBox(height: 10),
+  //     TextFormField(
+  //     controller: _cardHolderNameController,
+  //     decoration: InputDecoration(
+  //     labelText: "Card Holder Name",
+  //     labelStyle: TextStyle(color: Colors.grey[800]),
+  //     ),
+  //     validator: (value) {
+  //     if (value == null || value.isEmpty) {
+  //     return "Please enter card holder name";
+  //     }
+  //     return null;
+  //     },
+  //     ),
+  //     SizedBox(height: 10),
+  //     Row(
+  //     children: [
+  //     Expanded(
+  //     child: DropdownButtonFormField<String>(
+  //     decoration: InputDecoration(
+  //     labelText: "Expiry Month",
+  //     labelStyle: TextStyle(color: Colors.grey[800]),
+  //     ),
+  //     value: _selectedMonth,
+  //     items: months.map((String value) {
+  //     return DropdownMenuItem<String>(
+  //     value: value,
+  //     child: Text(value),
+  //     );
+  //     }).toList(),
+  //     onChanged: (value) {
+  //     setState(() {
+  //     _selectedMonth = value;
+  //     });
+  //     },
+  //     validator: (value) {
+  //     if (value == null || value.isEmpty) {
+  //     return "Please select expiry month";
+  //     }
+  //     return null;
+  //     },
+  //     ),
+  //     ),
+  //     SizedBox(width: 10),
+  //     Expanded(
+  //     child: DropdownButtonFormField<String>(
+  //     decoration: InputDecoration(
+  //     labelText: "Expiry Year",
+  //     labelStyle: TextStyle(color: Colors.grey[800]),
+  //     ),
+  //     value: _selectedYear,
+  //     items: years.map((String value) {
+  //     return DropdownMenuItem<String>(
+  //     value: value,
+  //     child: Text(value),
+  //     );
+  //     }).toList(),
+  //     onChanged: (value) {
+  //     setState(() {
+  //     _selectedYear = value;
+  //     });
+  //     },
+  //     validator: (value) {
+  //     if (value == null || value.isEmpty) {
+  //     return "Please select expiry year";
+  //     }
+  //     return null;
+  //     },
+  //     ),
+  //     ),
+  //     ],
+  //     ),
+  //     SizedBox(height: 10),
+  //     TextFormField(
+  //     controller: _ccvController,
+  //     decoration: InputDecoration(
+  //     labelText: "CCV",
+  //     labelStyle: TextStyle(color: Colors.grey[800]),
+  //     ),
+  //     keyboardType: TextInputType.number,
+  //     maxLength: 3,
+  //     validator: (value) {
+  //     if (value == null || value.isEmpty) {
+  //     return "Please enter CCV";
+  //     }
+  //     if (value.length != 3) {
+  //     return "CCV must be 3 digits";
+  //     }
+  //     return null;
+  //     },
+  //     ),
+  //   SizedBox(height: 20),
+  //   ElevatedButton(
+  //   onPressed: () {
+  //   if (_formKey.currentState!.validate()) {
+  //   // Here you can use the card details for further processing (e.g., API call)
+  //
+  //   showDialog(
+  //   context: context,
+  //   builder: (_) => AlertDialog(
+  //   title: Text('Card Details'),
+  //   content: Column(
+  //   crossAxisAlignment: CrossAxisAlignment.start,
+  //   mainAxisSize: MainAxisSize.min,
+  //   children: [
+  //   Text('Card Number: ${_cardNumberController.text}'),
+  //   Text('Card Holder Name: ${_cardHolderNameController.text}'),
+  //     Text('Expiry Date: $_selectedMonth/$_selectedYear'),
+  //     Text('CCV: ${_ccvController.text}'),
+  //   ],
+  //   ),
+  //     actions: [
+  //       TextButton(
+  //         onPressed: () {
+  //           Navigator.of(context).pop(); // Close the dialog
+  //         },
+  //         child: Text("OK"),
+  //       ),
+  //     ],
+  //   ),
+  //   );
+  //   }
+  //   },
+  //     child: Text("Save Card",style: TextStyle(
+  //         color: Colors.black
+  //     ),),
+  //   ),
+  //   ],
+  //   ),
+  //   ),
+  //       ),
+  //   );
+  // }
+
+  Widget _buildCardInputForm() {
+    return Card(
+      elevation: 8,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      color: MyTheme.soft_accent_color, // Customize the card appearance
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Text(
+                  "Card Information",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _cardNumberController,
+                decoration: InputDecoration(
+                  labelText: 'Card Number',
+                  hintText: '4444 3333 2222 1111',
+                  labelStyle: TextStyle(color: Colors.grey[800]),
+                ),
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(19),
+                ],
+                onChanged: _onCardNumberChanged,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter your card number";
+                  }
+                  if (value.replaceAll(' ', '').length != 16) {
+                    return "Card number must be 16 digits";
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _cardHolderNameController,
+                decoration: InputDecoration(
+                  labelText: "Card Holder Name",
+                  labelStyle: TextStyle(color: Colors.grey[800]),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter card holder name";
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        labelText: "Expiry Month",
+                        labelStyle: TextStyle(color: Colors.grey[800]),
+                      ),
+                      value: _selectedMonth,
+                      items: months.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedMonth = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please select expiry month";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        labelText: "Expiry Year",
+                        labelStyle: TextStyle(color: Colors.grey[800]),
+                      ),
+                      value: _selectedYear,
+                      items: years.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedYear = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please select expiry year";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _ccvController,
+                decoration: InputDecoration(
+                  labelText: "CCV",
+                  labelStyle: TextStyle(color: Colors.grey[800]),
+                ),
+                keyboardType: TextInputType.number,
+                maxLength: 3,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter CCV";
+                  }
+                  if (value.length != 3) {
+                    return "CCV must be 3 digits";
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 20),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     if (_formKey.currentState!.validate()) {
+              //       // Here you can use the card details for further processing (e.g., API call)
+              //       showDialog(
+              //         context: context,
+              //         builder: (_) => AlertDialog(
+              //           title: Text('Card Details'),
+              //           content: Column(
+              //             crossAxisAlignment: CrossAxisAlignment.start,
+              //             mainAxisSize: MainAxisSize.min,
+              //             children: [
+              //               Text('Card Number: ${_cardNumberController.text}'),
+              //               Text('Card Holder Name: ${_cardHolderNameController.text}'),
+              //               Text('Expiry Date: $_selectedMonth/$_selectedYear'),
+              //               Text('CCV: ${_ccvController.text}'),
+              //             ],
+              //           ),
+              //           actions: [
+              //             TextButton(
+              //               onPressed: () {
+              //                 Navigator.of(context).pop(); // Close the dialog
+              //               },
+              //               child: Text("OK"),
+              //             ),
+              //           ],
+              //         ),
+              //       );
+              //     }
+              //   },
+              //   child: Text(
+              //     "Save Card",
+              //     style: TextStyle(
+              //       color: Colors.black,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Row buildApplyCouponRow(BuildContext context) {
     return Row(
-        children: [
+      children: [
         Container(
-        height: 42,
-        width: (MediaQuery.of(context).size.width - 32) * (2 / 3),
-    child: TextFormField(
-    controller: _couponController,
-    readOnly: _coupon_applied!,
-    autofocus: false,
-    decoration: InputDecoration(
-    hintText: AppLocalizations.of(context)!.enter_coupon_code,
-    hintStyle:
-    TextStyle(fontSize: 14.0, color: MyTheme.textfield_grey),
-    enabledBorder: app_language_rtl.$!
-    ? OutlineInputBorder(
-    borderSide: BorderSide(
-    color: MyTheme.textfield_grey, width: 0.5),
-    borderRadius: const BorderRadius.only(
-    topRight: const Radius.circular(8.0),
-    bottomRight: const Radius.circular(8.0),
-    ),
-    )
-        : OutlineInputBorder(
-    borderSide: BorderSide(
-    color: MyTheme.textfield_grey, width: 0.5),
-    borderRadius: const BorderRadius.only(
-    topLeft: const Radius.circular(8.0),
-    bottomLeft: const Radius.circular(8.0),
-    ),
-    ),
-    focusedBorder: OutlineInputBorder(
-    borderSide:
-    BorderSide(color: MyTheme.medium_grey, width: 0.5),
-    borderRadius: const BorderRadius.only(
-    topLeft: const Radius.circular(8.0),
-    bottomLeft: const Radius.circular(8.0),
-    ),
-    ),
-    contentPadding: EdgeInsets.only(left: 16.0)),
-    ),
-        ),
-          !_coupon_applied!
-              ? Container(
-            width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
-            height: 42,
-            child: Btn.basic(
-              minWidth: MediaQuery.of(context).size.width,
-              // color: Colors.orange,
-              color: Colors.orange,
-              shape: app_language_rtl.$!
-                  ? RoundedRectangleBorder(
+          height: 42,
+          width: (MediaQuery.of(context).size.width - 32) * (2 / 3),
+          child: TextFormField(
+            controller: _couponController,
+            readOnly: _coupon_applied!,
+            autofocus: false,
+            decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.enter_coupon_code,
+                hintStyle:
+                TextStyle(fontSize: 14.0, color: MyTheme.textfield_grey),
+                enabledBorder: app_language_rtl.$!
+                    ? OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: MyTheme.textfield_grey, width: 0.5),
+                  borderRadius: const BorderRadius.only(
+                    topRight: const Radius.circular(8.0),
+                    bottomRight: const Radius.circular(8.0),
+                  ),
+                )
+                    : OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: MyTheme.textfield_grey, width: 0.5),
                   borderRadius: const BorderRadius.only(
                     topLeft: const Radius.circular(8.0),
                     bottomLeft: const Radius.circular(8.0),
-                  ))
-                  : RoundedRectangleBorder(
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                  BorderSide(color: MyTheme.medium_grey, width: 0.5),
                   borderRadius: const BorderRadius.only(
-                    topRight: const Radius.circular(8.0),
-                    bottomRight: const Radius.circular(8.0),
-                  )),
-              child: Text(
-                AppLocalizations.of(context)!.apply_coupon_all_capital,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600),
-              ),
-              onPressed: () {
-                onCouponApply();
-              },
+                    topLeft: const Radius.circular(8.0),
+                    bottomLeft: const Radius.circular(8.0),
+                  ),
+                ),
+                contentPadding: EdgeInsets.only(left: 16.0)),
+          ),
+        ),
+        !_coupon_applied!
+            ? Container(
+          width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
+          height: 42,
+          child: Btn.basic(
+            minWidth: MediaQuery.of(context).size.width,
+            // color: Colors.orange,
+            color: Colors.orange,
+            shape: app_language_rtl.$!
+                ? RoundedRectangleBorder(
+                borderRadius: const BorderRadius.only(
+                  topLeft: const Radius.circular(8.0),
+                  bottomLeft: const Radius.circular(8.0),
+                ))
+                : RoundedRectangleBorder(
+                borderRadius: const BorderRadius.only(
+                  topRight: const Radius.circular(8.0),
+                  bottomRight: const Radius.circular(8.0),
+                )),
+            child: Text(
+              AppLocalizations.of(context)!.apply_coupon_all_capital,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600),
             ),
-          )
-              : Container(
-            width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
-            height: 42,
-            child: Btn.basic(
-              minWidth: MediaQuery.of(context).size.width,
-              // color: Colors.orange,
-              color: Colors.black,
-              shape: RoundedRectangleBorder(
-                  borderRadius: const BorderRadius.only(
-                    topRight: const Radius.circular(8.0),
-                    bottomRight: const Radius.circular(8.0),
-                  )),
-              child: Text(
-                AppLocalizations.of(context)!.remove_ucf,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600),
-              ),
-              onPressed: () {
-                onCouponRemove();
-              },
+            onPressed: () {
+              onCouponApply();
+            },
+          ),
+        )
+            : Container(
+          width: (MediaQuery.of(context).size.width - 32) * (1 / 3),
+          height: 42,
+          child: Btn.basic(
+            minWidth: MediaQuery.of(context).size.width,
+            // color: Colors.orange,
+            color: Colors.black,
+            shape: RoundedRectangleBorder(
+                borderRadius: const BorderRadius.only(
+                  topRight: const Radius.circular(8.0),
+                  bottomRight: const Radius.circular(8.0),
+                )),
+            child: Text(
+              AppLocalizations.of(context)!.remove_ucf,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600),
             ),
-          )
-        ],
+            onPressed: () {
+              onCouponRemove();
+            },
+          ),
+        )
+      ],
     );
   }
 
@@ -2262,7 +2609,8 @@ class _CheckoutState extends State<Checkout> {
     }
   }
 
-  GestureDetector buildPaymentMethodItemCard(int index) {
+  GestureDetector buildPaymentMethodItemCard(index) {
+
     PaymentTypeItem item = _paymentTypeList[index];
 
     return GestureDetector(
@@ -2290,18 +2638,12 @@ class _CheckoutState extends State<Checkout> {
                       width: 100,
                       height: 100,
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: item.payment_type == "card"
-                            ? Image.asset(
-                          "assets/card_payment.png", // Your card asset
-                          fit: BoxFit.fitWidth,
-                        )
-                            : FadeInImage.assetNetwork( // Use assetNetwork
-                          placeholder: 'assets/placeholder.png', //Placeholder Image
-                          image: item.image, //Load data
-                          fit: BoxFit.fitWidth,
-                        ),
-                      )),
+                          padding: const EdgeInsets.all(16.0),
+                          child:
+                          Image(
+                            image: _getImageProvider(item), // Use a method to determine image source
+                            fit: BoxFit.fitWidth,
+                          ))),
                   Container(
                     width: 150,
                     child: Column(
@@ -2336,6 +2678,17 @@ class _CheckoutState extends State<Checkout> {
         ],
       ),
     );
+  }
+
+  ImageProvider _getImageProvider(PaymentTypeItem item) {
+    // Determine if the image source is from a URL or local asset
+    if (item.image.startsWith('http')) {
+      // It's a URL (network image)
+      return NetworkImage(item.image);
+    } else {
+      // It's a local asset image
+      return AssetImage(item.image);
+    }
   }
 
   Widget buildPaymentMethodCheckContainer(bool check) {
@@ -2496,4 +2849,9 @@ class PaymentTypeItem{
 
   PaymentTypeItem(this.payment_type, this.title, this.payment_type_key, this.image);
 
+  PaymentTypeItem.fromResponse(dynamic response) :
+        payment_type = response.payment_type ?? "",
+        title = response.title ?? "",
+        payment_type_key = response.payment_type_key ?? "",
+        image = response.image ?? "" ;
 }
